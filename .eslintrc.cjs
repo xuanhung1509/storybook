@@ -43,6 +43,7 @@ module.exports = {
     'react/jsx-no-useless-fragment': 'warn',
     'react/jsx-key': 'warn',
     'react/self-closing-comp': 'warn',
+    'react/require-default-props': 'off',
     'react-hooks/exhaustive-deps': 'warn',
   },
 };
