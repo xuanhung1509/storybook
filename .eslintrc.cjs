@@ -13,6 +13,7 @@ module.exports = {
     'airbnb-typescript',
     'airbnb/hooks',
     'plugin:react/jsx-runtime',
+    'plugin:storybook/recommend',
     'prettier',
   ],
   settings: {
