@@ -33,7 +33,7 @@ module.exports = {
     'arrow-body-style': 'warn',
     'import/order': 'warn',
     'import/no-extraneous-dependencies': 'off',
-    'import/prefer-default-export': 'warn',
+    'import/prefer-default-export': 'off',
     'react/function-component-definition': [
       'warn',
       {
