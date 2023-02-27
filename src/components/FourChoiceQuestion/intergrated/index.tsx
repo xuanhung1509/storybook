@@ -1,7 +1,7 @@
 /* eslint-disable react/no-danger */
 import { Fragment, useState } from 'react';
 import { MathJax, MathJaxContext } from 'better-react-mathjax';
-import { AnimatePresence, motion, Variants } from 'framer-motion';
+import ResizablePanel from '@/components/ResizablePanel';
 import cx from '@/utils/classnames';
 
 type ContentType = 'plain' | 'html' | 'image';
@@ -172,11 +172,6 @@ const FourChoiceQuestion = ({
   const [checkResult, setCheckResult] = useState(false);
   const [showSolution, setShowSolution] = useState(true);
 
-  const variants: Variants = {
-    hidden: { height: 0, opacity: 0 },
-    visible: { height: 'auto', opacity: 1 },
-  };
-
   const renderAnswerIndex = (index: number) => {
     const indexMap = [
       {
@@ -300,23 +295,14 @@ const FourChoiceQuestion = ({
         )}
 
         {/* Hint */}
-        <AnimatePresence>
-          {!checkResult && showHint && (
-            <motion.div
-              className={cx('overflow-hidden', cxs?.hint)}
-              variants={variants}
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
-            >
-              <div className="pt-4">
-                <div className="rounded border p-4">
-                  {renderContentItems(hint)}
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <ResizablePanel
+          visible={!checkResult && showHint}
+          className={cxs?.hint}
+        >
+          <div className="pt-4">
+            <div className="rounded border p-4">{renderContentItems(hint)}</div>
+          </div>
+        </ResizablePanel>
 
         {InsertComponent && InsertComponent.placeAfter === 'hint' && (
           <InsertComponent.Component />
@@ -419,19 +405,9 @@ const FourChoiceQuestion = ({
               )}
 
             {/* Solution */}
-            <AnimatePresence>
-              {showSolution && (
-                <motion.div
-                  className={cx('overflow-hidden', cxs?.solution)}
-                  variants={variants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="hidden"
-                >
-                  <div className="pt-4">{renderContentItems(solution)}</div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            <ResizablePanel visible={showSolution} className={cxs?.solution}>
+              <div className="pt-4">{renderContentItems(solution)}</div>
+            </ResizablePanel>
 
             {InsertComponent && InsertComponent.placeAfter === 'solution' && (
               <InsertComponent.Component />
