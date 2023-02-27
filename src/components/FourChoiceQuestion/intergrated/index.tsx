@@ -1,5 +1,6 @@
 /* eslint-disable react/no-danger */
 import { Fragment, useState } from 'react';
+import { ChevronRightIcon } from '@heroicons/react/20/solid';
 import { MathJax, MathJaxContext } from 'better-react-mathjax';
 import ResizablePanel from '@/components/ResizablePanel';
 import cx from '@/utils/classnames';
@@ -395,12 +396,18 @@ const FourChoiceQuestion = ({
             <button
               type="button"
               className={cx(
-                'mt-4 rounded-md border bg-emerald-500 px-8 py-2 text-white',
+                'mt-4 flex items-center gap-2 rounded-md border bg-emerald-500 px-8 py-2 text-white',
                 cxs?.toggleSolutionButton,
               )}
               onClick={() => setShowSolution((prev) => !prev)}
             >
-              Xem lời giải &nbsp;&gt;
+              Xem lời giải
+              <ChevronRightIcon
+                className={cx(
+                  'h-6 w-6 transition-transform',
+                  showSolution && 'rotate-90',
+                )}
+              />
             </button>
 
             {InsertComponent &&
