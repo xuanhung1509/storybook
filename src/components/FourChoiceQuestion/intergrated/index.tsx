@@ -24,6 +24,11 @@ interface FourChoiceQuestionProps {
   difficultyLevel: 'Nhận biết' | 'Thông hiểu' | 'Vận dụng' | 'Vận dụng cao';
 
   /**
+   * `commonQuestion`: Sử dụng trong trường hợp câu hỏi có đề bài chung.
+   */
+  commonQuestion?: ContentItem[];
+
+  /**
    * `question`: Đề bài của câu hỏi.
    */
   question: ContentItem[];
@@ -60,6 +65,7 @@ interface FourChoiceQuestionProps {
     header?: string;
     label?: string;
     difficultyLevel?: string;
+    commonQuestion?: string;
     question?: string;
     answerGrid?: string;
     answerItem?: string;
@@ -122,6 +128,7 @@ interface FourChoiceQuestionProps {
     Component: () => JSX.Element;
     placeAfter:
       | 'header'
+      | 'commonQuestion'
       | 'question'
       | 'answers'
       | 'hint'
@@ -155,6 +162,7 @@ const NextButton = ({ selected, onNextClick, cxs }: NextButtonProps) => (
 const FourChoiceQuestion = ({
   label,
   difficultyLevel,
+  commonQuestion,
   question,
   answers,
   hint,
@@ -235,6 +243,24 @@ const FourChoiceQuestion = ({
         </div>
 
         {InsertComponent && InsertComponent.placeAfter === 'header' && (
+          <InsertComponent.Component />
+        )}
+
+        {/* Common question */}
+        {commonQuestion && (
+          <div
+            className={cx(
+              'mt-4 mb-6 rounded border border-slate-300 py-4',
+              cxs?.commonQuestion,
+            )}
+          >
+            <div className="max-h-40 overflow-y-auto px-4">
+              {renderContentItems(commonQuestion)}
+            </div>
+          </div>
+        )}
+
+        {InsertComponent && InsertComponent.placeAfter === 'commonQuestion' && (
           <InsertComponent.Component />
         )}
 
