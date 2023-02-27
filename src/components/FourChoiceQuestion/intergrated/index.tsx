@@ -268,7 +268,11 @@ const FourChoiceQuestion = ({
                 className="peer absolute top-0 left-0 z-10 h-full w-full cursor-pointer opacity-0"
                 disabled={checkResult}
                 value={id}
-                onChange={(e) => setSelected(e.target.value)}
+                onChange={(e) => {
+                  const answer = e.target.value;
+                  setSelected(answer);
+                  setShowSolution(!(answer === correctAnswerId));
+                }}
               />
               <div
                 className={cx(
