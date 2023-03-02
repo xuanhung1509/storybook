@@ -98,7 +98,7 @@ interface FourChoiceQuestionProps {
    * @param event @param selected
    * @returns
    */
-  onNextClick?: (
+  onNextClick: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     selected: string | null,
   ) => void;

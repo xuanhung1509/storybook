@@ -74,6 +74,14 @@ const FourChoiceQuestion = ({
     </div>
   );
 
+  // Reset all states to initial
+  const reset = () => {
+    setShowHint(false);
+    setSelected(null);
+    setCheckResult(false);
+    setShowSolution(true);
+  };
+
   return (
     <FourChoiceQuestionProvider
       value={{
@@ -147,11 +155,14 @@ const FourChoiceQuestion = ({
                     id={id}
                     className="peer absolute top-0 left-0 z-10 h-full w-full cursor-pointer opacity-0"
                     disabled={checkResult}
+                    checked={selected === id}
                     value={id}
                     onChange={(e) => {
                       const answer = e.target.value;
                       setSelected(answer);
-                      setShowSolution(!(answer === correctAnswerId));
+
+                      // Mặc định không hiện lời giải nếu học sinh chọn đúng
+                      setShowSolution(answer !== correctAnswerId);
                     }}
                   />
                   <div
@@ -237,7 +248,7 @@ const FourChoiceQuestion = ({
                   Kiểm tra
                 </button>
               ) : (
-                <NextButton {...{ selected, onNextClick, cxs }} />
+                <NextButton {...{ selected, onNextClick, reset, cxs }} />
               )}
             </div>
           )}
@@ -319,7 +330,7 @@ const FourChoiceQuestion = ({
                 >
                   Xem lại lý thuyết
                 </button>
-                <NextButton {...{ selected, onNextClick, cxs }} />
+                <NextButton {...{ selected, onNextClick, reset, cxs }} />
               </div>
             </div>
           )}

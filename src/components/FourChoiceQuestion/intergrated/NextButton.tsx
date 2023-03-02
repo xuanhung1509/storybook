@@ -2,11 +2,12 @@ import cx from '@/utils/classnames';
 import type { FourChoiceQuestionProps } from './types';
 
 type NextButtonProps = Pick<FourChoiceQuestionProps, 'onNextClick'> & {
+  reset: () => void;
   selected: string | null;
   cxs: FourChoiceQuestionProps['classNames'];
 };
 
-const NextButton = ({ selected, onNextClick, cxs }: NextButtonProps) => (
+const NextButton = ({ selected, onNextClick, reset, cxs }: NextButtonProps) => (
   <button
     type="button"
     className={cx(
@@ -15,7 +16,11 @@ const NextButton = ({ selected, onNextClick, cxs }: NextButtonProps) => (
       'next-button',
     )}
     onClick={(event) => {
-      if (onNextClick) onNextClick(event, selected);
+      // eslint-disable-next-line no-alert
+      if (selected || (!selected && window.confirm('Are you sure?'))) {
+        onNextClick(event, selected);
+        reset();
+      }
     }}
   >
     Câu hỏi tiếp theo
