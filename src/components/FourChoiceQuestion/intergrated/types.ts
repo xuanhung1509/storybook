@@ -1,3 +1,5 @@
+import type { ConfirmationDialogProps } from '@/components/ConfirmationDialog/ConfirmationDialog';
+
 type ContentType = 'plain' | 'html' | 'image';
 
 interface ContentItem {
@@ -61,28 +63,28 @@ interface FourChoiceQuestionProps {
   solution: ContentItem[];
 
   /**
-   * `classNames`: Sử dụng trong trường hợp người dùng muốn tùy chỉnh style của các element.
+   * `classNames`: Tùy chỉnh style của các thành phần của Component.
    */
-  classNames?: {
-    container?: string;
-    header?: string;
-    label?: string;
-    difficultyLevel?: string;
-    commonQuestion?: string;
-    question?: string;
-    answerGrid?: string;
-    answerItem?: string;
-    answerRadio?: string;
-    answerLabel?: string;
-    hint?: string;
-    hintButton?: string;
-    checkResultButton?: string;
-    nextButton?: string;
-    toggleSolutionButton?: string;
-    revisionButton?: string;
-    buttonGrid?: string;
-    solution?: string;
-  };
+  classNames?: Partial<{
+    container: string;
+    header: string;
+    label: string;
+    difficultyLevel: string;
+    commonQuestion: string;
+    question: string;
+    answerGrid: string;
+    answerItem: string;
+    answerRadio: string;
+    answerLabel: string;
+    hint: string;
+    hintButton: string;
+    checkResultButton: string;
+    nextButton: string;
+    toggleSolutionButton: string;
+    revisionButton: string;
+    buttonGrid: string;
+    solution: string;
+  }>;
 
   /**
    * `onHintClick`: Event handler khi nhấn nút `Gợi ý`
@@ -131,6 +133,11 @@ interface FourChoiceQuestionProps {
     Component: () => JSX.Element;
     placeAfter: InsertComponentAfter;
   };
+
+  /**
+   * `ConfirmationDialog`: Tùy chỉnh hộp thoại confirm.
+   */
+  ConfirmationDialog?: ConfirmationDialogProps;
 }
 
 export type { ContentItem, InsertComponentAfter, FourChoiceQuestionProps };

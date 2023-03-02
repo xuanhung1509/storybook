@@ -3,6 +3,10 @@ import { Fragment, useState } from 'react';
 import { ChevronRightIcon } from '@heroicons/react/20/solid';
 import { MathJax, MathJaxContext } from 'better-react-mathjax';
 import ResizablePanel from '@/components/ResizablePanel';
+import {
+  ConfirmationDialog,
+  ConfirmationDialogProvider,
+} from '@/components/ConfirmationDialog';
 import cx from '@/utils/classnames';
 import { FourChoiceQuestionProvider } from './FourChoiceQuestionContext';
 import WithInsertedComponent from './WithInsertedComponent';
@@ -25,6 +29,7 @@ const FourChoiceQuestion = ({
   onCorrectAnswerSelect,
   onIncorrectAnswerSelect,
   insertComponent: InsertComponent,
+  ConfirmationDialog: ConfirmationDialogProps,
 }: FourChoiceQuestionProps) => {
   const [showHint, setShowHint] = useState(false);
   const [selected, setSelected] = useState<string | null>(null);
@@ -83,238 +88,134 @@ const FourChoiceQuestion = ({
   };
 
   return (
-    <FourChoiceQuestionProvider
-      value={{
-        InsertComponent,
-      }}
-    >
-      <MathJaxContext>
-        <div className={cx('w-[90vw] max-w-4xl', cxs?.container)}>
-          {/* Header */}
-          <WithInsertedComponent currentPosition="header">
-            <div
-              className={cx(
-                'flex items-center justify-between gap-4',
-                cxs?.header,
-              )}
-            >
-              <h2 className={cx('font-bold', cxs?.label)}>{label}</h2>
-              <span
-                className={cx(
-                  'rounded-tl-3xl rounded-br-3xl bg-blue-500 px-5 py-1 text-white',
-                  cxs?.difficultyLevel,
-                )}
-              >
-                {difficultyLevel}
-              </span>
-            </div>
-          </WithInsertedComponent>
-
-          {/* Common question */}
-          <WithInsertedComponent currentPosition="commonQuestion">
-            {commonQuestion && (
+    <ConfirmationDialogProvider>
+      <FourChoiceQuestionProvider
+        value={{
+          InsertComponent,
+        }}
+      >
+        <MathJaxContext>
+          <div className={cx('w-[90vw] max-w-4xl', cxs?.container)}>
+            {/* Header */}
+            <WithInsertedComponent currentPosition="header">
               <div
                 className={cx(
-                  'mt-4 mb-6 rounded border border-slate-300 py-4',
-                  cxs?.commonQuestion,
+                  'flex items-center justify-between gap-4',
+                  cxs?.header,
                 )}
               >
-                <div className="max-h-40 overflow-y-auto px-4">
-                  {renderContentItems(commonQuestion)}
-                </div>
-              </div>
-            )}
-          </WithInsertedComponent>
-
-          {/* Question */}
-          <WithInsertedComponent currentPosition="question">
-            <div className={cx('mt-4', cxs?.question)}>
-              {renderContentItems(question)}
-            </div>
-          </WithInsertedComponent>
-
-          {/* Answers */}
-          <WithInsertedComponent currentPosition="answers">
-            <div
-              className={cx(
-                'mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4',
-                cxs?.answerGrid,
-              )}
-            >
-              {indexedAnswers.map(({ id, type, content, index }) => (
-                <div
-                  key={id}
+                <h2 className={cx('font-bold', cxs?.label)}>{label}</h2>
+                <span
                   className={cx(
-                    'relative flex items-center gap-2 px-4 py-2',
-                    cxs?.answerItem,
+                    'rounded-tl-3xl rounded-br-3xl bg-blue-500 px-5 py-1 text-white',
+                    cxs?.difficultyLevel,
                   )}
                 >
-                  <input
-                    type="radio"
-                    name="answer-radio"
-                    id={id}
-                    className="peer absolute top-0 left-0 z-10 h-full w-full cursor-pointer opacity-0"
-                    disabled={checkResult}
-                    checked={selected === id}
-                    value={id}
-                    onChange={(e) => {
-                      const answer = e.target.value;
-                      setSelected(answer);
+                  {difficultyLevel}
+                </span>
+              </div>
+            </WithInsertedComponent>
 
-                      // Mặc định không hiện lời giải nếu học sinh chọn đúng
-                      setShowSolution(answer !== correctAnswerId);
-                    }}
-                  />
+            {/* Common question */}
+            <WithInsertedComponent currentPosition="commonQuestion">
+              {commonQuestion && (
+                <div
+                  className={cx(
+                    'mt-4 mb-6 rounded border border-slate-300 py-4',
+                    cxs?.commonQuestion,
+                  )}
+                >
+                  <div className="max-h-40 overflow-y-auto px-4">
+                    {renderContentItems(commonQuestion)}
+                  </div>
+                </div>
+              )}
+            </WithInsertedComponent>
+
+            {/* Question */}
+            <WithInsertedComponent currentPosition="question">
+              <div className={cx('mt-4', cxs?.question)}>
+                {renderContentItems(question)}
+              </div>
+            </WithInsertedComponent>
+
+            {/* Answers */}
+            <WithInsertedComponent currentPosition="answers">
+              <div
+                className={cx(
+                  'mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4',
+                  cxs?.answerGrid,
+                )}
+              >
+                {indexedAnswers.map(({ id, type, content, index }) => (
                   <div
+                    key={id}
                     className={cx(
-                      'h-4 w-4 cursor-move rounded-full border border-slate-300 bg-slate-100 peer-checked:bg-blue-500',
-                      cxs?.answerRadio,
-                    )}
-                  />
-                  <label
-                    htmlFor={id}
-                    className={cx(
-                      'flex cursor-pointer gap-2',
-                      cxs?.answerLabel,
+                      'relative flex items-center gap-2 px-4 py-2',
+                      cxs?.answerItem,
                     )}
                   >
-                    <span>{`${index}.`}</span>
-                    {type === 'plain' && <span>{content}</span>}
-                    {type === 'html' && (
-                      <MathJax dangerouslySetInnerHTML={{ __html: content }} />
-                    )}
-                  </label>
-                </div>
-              ))}
-            </div>
-          </WithInsertedComponent>
+                    <input
+                      type="radio"
+                      name="answer-radio"
+                      id={id}
+                      className="peer absolute top-0 left-0 z-10 h-full w-full cursor-pointer opacity-0"
+                      disabled={checkResult}
+                      checked={selected === id}
+                      value={id}
+                      onChange={(e) => {
+                        const answer = e.target.value;
+                        setSelected(answer);
 
-          {/* Hint */}
-          <WithInsertedComponent currentPosition="hint">
-            <ResizablePanel
-              visible={!checkResult && showHint}
-              className={cxs?.hint}
-            >
-              <div className="pt-4">
-                <div className="rounded border p-4">
-                  {renderContentItems(hint)}
-                </div>
-              </div>
-            </ResizablePanel>
-          </WithInsertedComponent>
-
-          {/* Hint & Check result/ Next buttons */}
-          {!checkResult && (
-            <div
-              className={cx(
-                'mt-4 grid grid-cols-2 items-center gap-4 bg-white',
-                cxs?.buttonGrid,
-              )}
-            >
-              <button
-                type="button"
-                className={cx(
-                  'h-full rounded-md border border-emerald-500 px-4 py-2',
-                  cxs?.hintButton,
-                )}
-                onClick={(event) => {
-                  setShowHint((prev) => !prev);
-
-                  if (onHintClick) onHintClick(event);
-                }}
-              >
-                Gợi ý
-              </button>
-              {selected ? (
-                <button
-                  type="button"
-                  className={cx(
-                    'h-full rounded-md border bg-emerald-500 px-4 py-2 text-white',
-                    cxs?.checkResultButton,
-                  )}
-                  onClick={() => {
-                    setCheckResult(true);
-
-                    if (selected === correctAnswerId && onCorrectAnswerSelect) {
-                      onCorrectAnswerSelect();
-                    } else if (
-                      selected !== correctAnswerId &&
-                      onIncorrectAnswerSelect
-                    ) {
-                      onIncorrectAnswerSelect();
-                    }
-                  }}
-                >
-                  Kiểm tra
-                </button>
-              ) : (
-                <NextButton {...{ selected, onNextClick, reset, cxs }} />
-              )}
-            </div>
-          )}
-
-          {checkResult && (
-            <div className="mt-4 flex flex-col items-center">
-              {/* Result */}
-              <WithInsertedComponent currentPosition="result">
-                <div className="w-full rounded border border-dashed border-red-500 px-8 py-3">
-                  <p className="text-center font-bold">
-                    <span
+                        // Mặc định không hiện lời giải nếu học sinh chọn đúng
+                        setShowSolution(answer !== correctAnswerId);
+                      }}
+                    />
+                    <div
                       className={cx(
-                        selected === correctAnswerId
-                          ? 'text-emerald-500'
-                          : 'text-red-500',
+                        'h-4 w-4 cursor-move rounded-full border border-slate-300 bg-slate-100 peer-checked:bg-blue-500',
+                        cxs?.answerRadio,
+                      )}
+                    />
+                    <label
+                      htmlFor={id}
+                      className={cx(
+                        'flex cursor-pointer gap-2',
+                        cxs?.answerLabel,
                       )}
                     >
-                      Bạn đã chọn{' '}
-                      {selected === correctAnswerId ? 'đúng' : 'sai'}
-                    </span>
-                    <span className="px-2 text-emerald-500">|</span>
-                    <span className="text-emerald-500">
-                      Đáp án đúng:{' '}
-                      {
-                        indexedAnswers.find(({ id }) => id === correctAnswerId)
-                          ?.index
-                      }
-                    </span>
-                  </p>
+                      <span>{`${index}.`}</span>
+                      {type === 'plain' && <span>{content}</span>}
+                      {type === 'html' && (
+                        <MathJax
+                          dangerouslySetInnerHTML={{ __html: content }}
+                        />
+                      )}
+                    </label>
+                  </div>
+                ))}
+              </div>
+            </WithInsertedComponent>
+
+            {/* Hint */}
+            <WithInsertedComponent currentPosition="hint">
+              <ResizablePanel
+                visible={!checkResult && showHint}
+                className={cxs?.hint}
+              >
+                <div className="pt-4">
+                  <div className="rounded border p-4">
+                    {renderContentItems(hint)}
+                  </div>
                 </div>
-              </WithInsertedComponent>
+              </ResizablePanel>
+            </WithInsertedComponent>
 
-              {/* Toggle solution button */}
-              <WithInsertedComponent currentPosition="toggleSolutionButton">
-                <button
-                  type="button"
-                  className={cx(
-                    'mt-4 flex items-center gap-2 rounded-md border bg-emerald-500 px-8 py-2 text-white',
-                    cxs?.toggleSolutionButton,
-                  )}
-                  onClick={() => setShowSolution((prev) => !prev)}
-                >
-                  Xem lời giải
-                  <ChevronRightIcon
-                    className={cx(
-                      'h-6 w-6 transition-transform',
-                      showSolution && 'rotate-90',
-                    )}
-                  />
-                </button>
-              </WithInsertedComponent>
-
-              {/* Solution */}
-              <WithInsertedComponent currentPosition="solution">
-                <ResizablePanel
-                  visible={showSolution}
-                  className={cxs?.solution}
-                >
-                  <div className="pt-4">{renderContentItems(solution)}</div>
-                </ResizablePanel>
-              </WithInsertedComponent>
-
-              {/* Revision & Next buttons */}
+            {/* Hint & Check result/ Next buttons */}
+            {!checkResult && (
               <div
                 className={cx(
-                  'mt-4 grid w-full grid-cols-2 items-center gap-4 bg-white',
+                  'mt-4 grid grid-cols-2 items-center gap-4 bg-white',
                   cxs?.buttonGrid,
                 )}
               >
@@ -322,21 +223,136 @@ const FourChoiceQuestion = ({
                   type="button"
                   className={cx(
                     'h-full rounded-md border border-emerald-500 px-4 py-2',
-                    cxs?.revisionButton,
+                    cxs?.hintButton,
                   )}
                   onClick={(event) => {
-                    if (onRevisionClick) onRevisionClick(event);
+                    setShowHint((prev) => !prev);
+
+                    if (onHintClick) onHintClick(event);
                   }}
                 >
-                  Xem lại lý thuyết
+                  Gợi ý
                 </button>
-                <NextButton {...{ selected, onNextClick, reset, cxs }} />
+                {selected ? (
+                  <button
+                    type="button"
+                    className={cx(
+                      'h-full rounded-md border bg-emerald-500 px-4 py-2 text-white',
+                      cxs?.checkResultButton,
+                    )}
+                    onClick={() => {
+                      setCheckResult(true);
+
+                      if (
+                        selected === correctAnswerId &&
+                        onCorrectAnswerSelect
+                      ) {
+                        onCorrectAnswerSelect();
+                      } else if (
+                        selected !== correctAnswerId &&
+                        onIncorrectAnswerSelect
+                      ) {
+                        onIncorrectAnswerSelect();
+                      }
+                    }}
+                  >
+                    Kiểm tra
+                  </button>
+                ) : (
+                  <NextButton {...{ selected, onNextClick, reset, cxs }} />
+                )}
               </div>
-            </div>
-          )}
-        </div>
-      </MathJaxContext>
-    </FourChoiceQuestionProvider>
+            )}
+
+            {checkResult && (
+              <div className="mt-4 flex flex-col items-center">
+                {/* Result */}
+                <WithInsertedComponent currentPosition="result">
+                  <div className="w-full rounded border border-dashed border-red-500 px-8 py-3">
+                    <p className="text-center font-bold">
+                      <span
+                        className={cx(
+                          selected === correctAnswerId
+                            ? 'text-emerald-500'
+                            : 'text-red-500',
+                        )}
+                      >
+                        Bạn đã chọn{' '}
+                        {selected === correctAnswerId ? 'đúng' : 'sai'}
+                      </span>
+                      <span className="px-2 text-emerald-500">|</span>
+                      <span className="text-emerald-500">
+                        Đáp án đúng:{' '}
+                        {
+                          indexedAnswers.find(
+                            ({ id }) => id === correctAnswerId,
+                          )?.index
+                        }
+                      </span>
+                    </p>
+                  </div>
+                </WithInsertedComponent>
+
+                {/* Toggle solution button */}
+                <WithInsertedComponent currentPosition="toggleSolutionButton">
+                  <button
+                    type="button"
+                    className={cx(
+                      'mt-4 flex items-center gap-2 rounded-md border bg-emerald-500 px-8 py-2 text-white',
+                      cxs?.toggleSolutionButton,
+                    )}
+                    onClick={() => setShowSolution((prev) => !prev)}
+                  >
+                    Xem lời giải
+                    <ChevronRightIcon
+                      className={cx(
+                        'h-6 w-6 transition-transform',
+                        showSolution && 'rotate-90',
+                      )}
+                    />
+                  </button>
+                </WithInsertedComponent>
+
+                {/* Solution */}
+                <WithInsertedComponent currentPosition="solution">
+                  <ResizablePanel
+                    visible={showSolution}
+                    className={cxs?.solution}
+                  >
+                    <div className="pt-4">{renderContentItems(solution)}</div>
+                  </ResizablePanel>
+                </WithInsertedComponent>
+
+                {/* Revision & Next buttons */}
+                <div
+                  className={cx(
+                    'mt-4 grid w-full grid-cols-2 items-center gap-4 bg-white',
+                    cxs?.buttonGrid,
+                  )}
+                >
+                  <button
+                    type="button"
+                    className={cx(
+                      'h-full rounded-md border border-emerald-500 px-4 py-2',
+                      cxs?.revisionButton,
+                    )}
+                    onClick={(event) => {
+                      if (onRevisionClick) onRevisionClick(event);
+                    }}
+                  >
+                    Xem lại lý thuyết
+                  </button>
+                  <NextButton {...{ selected, onNextClick, reset, cxs }} />
+                </div>
+              </div>
+            )}
+          </div>
+        </MathJaxContext>
+
+        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+        <ConfirmationDialog {...ConfirmationDialogProps} />
+      </FourChoiceQuestionProvider>
+    </ConfirmationDialogProvider>
   );
 };
 

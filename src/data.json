@@ -1,0 +1,1354 @@
+[
+  {
+    "_id": "63c674ac04c27e6cc438155f",
+    "question_style": {
+      "general": 1,
+      "mobile": 1
+    },
+    "author": {
+      "id": "6205c0abc873840356380648",
+      "name": "thaont"
+    },
+    "analytics": {
+      "correct": 0,
+      "incorrect": 0,
+      "skiped": 0,
+      "total_answer": 0,
+      "percent_false": 0
+    },
+    "modified_history": [
+      {
+        "_id": "63c674ac04c27e6cc4381560",
+        "author": {
+          "id": "6205c0abc873840356380648",
+          "name": "thaont"
+        },
+        "reason": "Đã thêm câu hỏi gốc mới",
+        "revision": 1673950380,
+        "content": {
+          "state": 1
+        },
+        "modified_time": "Tue Jan 17 2023 17:13:00 GMT+0700 (Indochina Time)"
+      },
+      {
+        "_id": "63c676d004c27e6cc438156c",
+        "author": {
+          "id": "6205c0abc873840356380648",
+          "name": "thaont"
+        },
+        "reason": "State",
+        "revision": 1673950928,
+        "content": {
+          "state": 4
+        },
+        "modified_time": "Tue Jan 17 2023 17:22:08 GMT+0700 (Indochina Time)"
+      }
+    ],
+    "state": 4,
+    "content_type": 2,
+    "question_type": 1,
+    "difficult_degree": 3,
+    "same_type": 1,
+    "question": {
+      "id": "2",
+      "content": [
+        {
+          "type": "html",
+          "content": "<p>H&agrave; mua 5 g&oacute;i m&igrave; t&ocirc;m v&agrave; đưa c&ocirc; b&aacute;n h&agrave;ng 50 000 đồng. C&ocirc; b&aacute;n h&agrave;ng trả lại H&agrave; 12 000 đồng. Vậy mỗi g&oacute;i m&igrave; t&ocirc;m c&oacute; gi&aacute; l&agrave;:</p>"
+        }
+      ],
+      "answers": [
+        {
+          "id": "3",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>7 600 đồng</p>"
+            }
+          ],
+          "answer_key": "a",
+          "correct": true,
+          "question": "2"
+        },
+        {
+          "id": "4",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>7 000 đồng</p>"
+            }
+          ],
+          "answer_key": "b",
+          "correct": false,
+          "question": "2"
+        },
+        {
+          "id": "5",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>6 500 đồng</p>"
+            }
+          ],
+          "answer_key": "c",
+          "correct": false,
+          "question": "2"
+        },
+        {
+          "id": "6",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>8 200 đồng</p>"
+            }
+          ],
+          "answer_key": "d",
+          "correct": false,
+          "question": "2"
+        }
+      ],
+      "quiz": "1"
+    },
+    "solution_suggesstion": [
+      {
+        "type": "html",
+        "content": "<p>- Số tiền H&agrave; mua 5 g&oacute;i m&igrave; t&ocirc;m = Số tiền H&agrave; đưa - số tiền được trả lại</p>\n<p>- Số tiền mỗi g&oacute;i m&igrave; t&ocirc;m =&nbsp;Số tiền H&agrave; mua 5 g&oacute;i m&igrave; t&ocirc;m : 5</p>"
+      }
+    ],
+    "related_lesson": [],
+    "solution_detail": [
+      {
+        "type": "html",
+        "content": "<p style=\"text-align: center;\">H&agrave; mua 5 g&oacute;i m&igrave; t&ocirc;m hết số tiền l&agrave;</p>\n<p style=\"text-align: center;\">50 000 - 12 000 = 38 000 (đồng)</p>\n<p style=\"text-align: center;\">Mỗi g&oacute;i m&igrave; t&ocirc;m c&oacute; gi&aacute; l&agrave;</p>\n<p style=\"text-align: center;\">38 000 : 5 = 7 600 (đồng)</p>\n<p style=\"text-align: center;\">Đ&aacute;p số:&nbsp;7 600 đồng</p>"
+      }
+    ],
+    "note": [],
+    "group_id": "63c674ac04c27e6cc4381561",
+    "order": 6,
+    "sub_order": 1,
+    "idx": 139004,
+    "created_date": "2023-01-17T10:13:00.941Z",
+    "updated_date": "2023-01-17T10:22:08.608Z",
+    "__v": 0,
+    "total_question": 1
+  },
+
+  {
+    "_id": "63c673da04c27e6cc438155a",
+    "question_style": {
+      "general": 1,
+      "mobile": 1
+    },
+    "author": {
+      "id": "6205c0abc873840356380648",
+      "name": "thaont"
+    },
+    "analytics": {
+      "correct": 0,
+      "incorrect": 0,
+      "skiped": 0,
+      "total_answer": 0,
+      "percent_false": 0
+    },
+    "modified_history": [
+      {
+        "_id": "63c673da04c27e6cc438155b",
+        "author": {
+          "id": "6205c0abc873840356380648",
+          "name": "thaont"
+        },
+        "reason": "Đã thêm câu hỏi gốc mới",
+        "revision": 1673950170,
+        "content": {
+          "state": 1
+        },
+        "modified_time": "Tue Jan 17 2023 17:09:30 GMT+0700 (Indochina Time)"
+      },
+      {
+        "_id": "63c676d804c27e6cc438156f",
+        "author": {
+          "id": "6205c0abc873840356380648",
+          "name": "thaont"
+        },
+        "reason": "State",
+        "revision": 1673950936,
+        "content": {
+          "state": 4
+        },
+        "modified_time": "Tue Jan 17 2023 17:22:16 GMT+0700 (Indochina Time)"
+      }
+    ],
+    "state": 4,
+    "content_type": 2,
+    "question_type": 1,
+    "difficult_degree": 3,
+    "same_type": 1,
+    "question": {
+      "id": "2",
+      "content": [
+        {
+          "type": "html",
+          "content": "<p style=\"text-align: center;\"><img src=\"https://img.loigiaihay.com/picture/2023/0117/1673949925560-qua-tao.jpg\" alt=\"\" width=\"150\" height=\"124\" /></p>\n<p>B&aacute;c Mai mua 3 kg t&aacute;o v&agrave; đưa c&ocirc; b&aacute;n h&agrave;ng 100 000 đồng. Mỗi ki-l&ocirc;-gam t&aacute;o c&oacute; gi&aacute; 32 400 đồng. C&ocirc; b&aacute;n h&agrave;ng l&agrave;m tr&ograve;n đến h&agrave;ng ngh&igrave;n số tiền mẹ cần trả. Vậy c&ocirc; b&aacute;n h&agrave;ng cần trả lại mẹ số tiền l&agrave;:</p>"
+        }
+      ],
+      "answers": [
+        {
+          "id": "3",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>2 800 đồng</p>"
+            }
+          ],
+          "answer_key": "a",
+          "correct": false,
+          "question": "2"
+        },
+        {
+          "id": "4",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>2 000 đồng</p>"
+            }
+          ],
+          "answer_key": "b",
+          "correct": false,
+          "question": "2"
+        },
+        {
+          "id": "5",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>3 000 đồng</p>"
+            }
+          ],
+          "answer_key": "c",
+          "correct": true,
+          "question": "2"
+        },
+        {
+          "id": "6",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>4 000 đồng</p>"
+            }
+          ],
+          "answer_key": "d",
+          "correct": false,
+          "question": "2"
+        }
+      ],
+      "quiz": "1"
+    },
+    "solution_suggesstion": [
+      {
+        "type": "html",
+        "content": "<p>- T&igrave;m số tiền mua 3 kg t&aacute;o = Số tiền mua 1 kg t&aacute;o x 3</p>\n<p>- Khi l&agrave;m tr&ograve;n số đến h&agrave;ng ngh&igrave;n, nếu chữ số h&agrave;ng trăm b&eacute; hơn 5 ta l&agrave;m tr&ograve;n xuống, c&ograve;n lại l&agrave;m tr&ograve;n l&ecirc;n</p>\n<p>- T&igrave;m số tiền c&ocirc; b&aacute;n h&agrave;ng trả lại = 100 000 - số tiền đ&atilde; l&agrave;m tr&ograve;n</p>"
+      }
+    ],
+    "related_lesson": [],
+    "solution_detail": [
+      {
+        "type": "html",
+        "content": "<p style=\"text-align: center;\">Mẹ mua 3 kg t&aacute;o hết số tiền l&agrave;</p>\n<p style=\"text-align: center;\">32 400 x 3 = 97 200 (đồng)</p>\n<p style=\"text-align: center;\">L&agrave;m tr&ograve;n số&nbsp;97 200 đến h&agrave;ng ngh&igrave;n ta được số 97 000.</p>\n<p style=\"text-align: center;\">Vậy&nbsp;c&ocirc; b&aacute;n h&agrave;ng cần trả lại mẹ số tiền l&agrave;</p>\n<p style=\"text-align: center;\">100 000 - 97 000 = 3 000 (đồng)</p>\n<p style=\"text-align: center;\">Đ&aacute;p số:&nbsp;3 000 đồng</p>"
+      }
+    ],
+    "note": [],
+    "group_id": "63c673da04c27e6cc438155c",
+    "order": 5,
+    "sub_order": 1,
+    "idx": 139003,
+    "created_date": "2023-01-17T10:09:30.164Z",
+    "updated_date": "2023-01-17T10:22:16.667Z",
+    "__v": 0,
+    "total_question": 1
+  },
+
+  {
+    "_id": "63c672ad04c27e6cc4381555",
+    "question_style": {
+      "general": 1,
+      "mobile": 1
+    },
+    "author": {
+      "id": "6205c0abc873840356380648",
+      "name": "thaont"
+    },
+    "analytics": {
+      "correct": 0,
+      "incorrect": 0,
+      "skiped": 0,
+      "total_answer": 0,
+      "percent_false": 0
+    },
+    "modified_history": [
+      {
+        "_id": "63c672ad04c27e6cc4381556",
+        "author": {
+          "id": "6205c0abc873840356380648",
+          "name": "thaont"
+        },
+        "reason": "Đã thêm câu hỏi gốc mới",
+        "revision": 1673949869,
+        "content": {
+          "state": 1
+        },
+        "modified_time": "Tue Jan 17 2023 17:04:29 GMT+0700 (Indochina Time)"
+      },
+      {
+        "_id": "63c676e004c27e6cc4381572",
+        "author": {
+          "id": "6205c0abc873840356380648",
+          "name": "thaont"
+        },
+        "reason": "State",
+        "revision": 1673950944,
+        "content": {
+          "state": 4
+        },
+        "modified_time": "Tue Jan 17 2023 17:22:24 GMT+0700 (Indochina Time)"
+      }
+    ],
+    "state": 4,
+    "content_type": 2,
+    "question_type": 1,
+    "difficult_degree": 3,
+    "same_type": 1,
+    "question": {
+      "id": "2",
+      "content": [
+        {
+          "type": "html",
+          "content": "<p style=\"text-align: center;\"><img src=\"https://img.loigiaihay.com/picture/2023/0117/1673949588512-hoa-sen.jpg\" alt=\"\" width=\"150\" height=\"152\" /></p>\n<p>Đ&agrave;n d&ecirc; của b&aacute;c An c&oacute; 1025 con. Mỗi ng&agrave;y, một con d&ecirc; sẽ ăn khoảng 3 kg cỏ tươi. Vậy khối lượng cỏ tươi b&aacute;c An cần cung cấp cho đ&agrave;n d&ecirc; ăn trong một tuần l&agrave;:</p>"
+        }
+      ],
+      "answers": [
+        {
+          "id": "3",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>10 250 kg</p>"
+            }
+          ],
+          "answer_key": "a",
+          "correct": false,
+          "question": "2"
+        },
+        {
+          "id": "4",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>7 175 kg</p>"
+            }
+          ],
+          "answer_key": "b",
+          "correct": false,
+          "question": "2"
+        },
+        {
+          "id": "5",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>7 196 kg</p>"
+            }
+          ],
+          "answer_key": "c",
+          "correct": false,
+          "question": "2"
+        },
+        {
+          "id": "6",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>21 525kg&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>"
+            }
+          ],
+          "answer_key": "d",
+          "correct": true,
+          "question": "2"
+        }
+      ],
+      "quiz": "1"
+    },
+    "solution_suggesstion": [
+      {
+        "type": "html",
+        "content": "<p>- T&igrave;m khối lượng cỏ đ&agrave;n d&ecirc; ăn trong 1 ng&agrave;y = Số kg cỏ mỗi con d&ecirc; ăn trong 1 ng&agrave;y x số d&ecirc; trong đ&agrave;n</p>\n<p>- T&igrave;m khối lượng cỏ đ&agrave;n d&ecirc; ăn 1 tuần =&nbsp;khối lượng cỏ đ&agrave;n d&ecirc; ăn trong 1 ng&agrave;y x 7</p>"
+      }
+    ],
+    "related_lesson": [],
+    "solution_detail": [
+      {
+        "type": "html",
+        "content": "<p style=\"text-align: center;\">Mỗi ng&agrave;y đ&agrave;n d&ecirc; ăn hết số ki-l&ocirc;-gam cỏ tươi l&agrave;</p>\n<p style=\"text-align: center;\">3 x 1 025 = 3 075 (kg)</p>\n<p style=\"text-align: center;\">Khối lượng cỏ tươi b&aacute;c An cần cung cấp cho đ&agrave;n d&ecirc; ăn trong một l&agrave;</p>\n<p style=\"text-align: center;\">3 075 x 7 = 21 525 (kg)</p>\n<p style=\"text-align: center;\">Đ&aacute;p số:&nbsp;21 525 kg</p>"
+      }
+    ],
+    "note": [],
+    "group_id": "63c672ad04c27e6cc4381557",
+    "order": 4,
+    "sub_order": 1,
+    "idx": 139002,
+    "created_date": "2023-01-17T10:04:29.277Z",
+    "updated_date": "2023-01-17T10:22:24.516Z",
+    "__v": 0,
+    "total_question": 1
+  },
+
+  {
+    "_id": "63c66ee004c27e6cc438154b",
+    "question_style": {
+      "general": 1,
+      "mobile": 1
+    },
+    "author": {
+      "id": "6205c0abc873840356380648",
+      "name": "thaont"
+    },
+    "analytics": {
+      "correct": 0,
+      "incorrect": 0,
+      "skiped": 0,
+      "total_answer": 0,
+      "percent_false": 0
+    },
+    "modified_history": [
+      {
+        "_id": "63c66ee004c27e6cc438154c",
+        "author": {
+          "id": "6205c0abc873840356380648",
+          "name": "thaont"
+        },
+        "reason": "Đã thêm câu hỏi gốc mới",
+        "revision": 1673948896,
+        "content": {
+          "state": 1
+        },
+        "modified_time": "Tue Jan 17 2023 16:48:16 GMT+0700 (Indochina Time)"
+      },
+      {
+        "_id": "63c74c6704c27e6cc438157c",
+        "author": {
+          "id": "6205c0abc873840356380648",
+          "name": "thaont"
+        },
+        "reason": "State",
+        "revision": 1674005607,
+        "content": {
+          "state": 4
+        },
+        "modified_time": "Wed Jan 18 2023 08:33:27 GMT+0700 (Indochina Time)"
+      }
+    ],
+    "state": 4,
+    "content_type": 2,
+    "question_type": 1,
+    "difficult_degree": 3,
+    "same_type": 1,
+    "question": {
+      "id": "2",
+      "content": [
+        {
+          "type": "html",
+          "content": "<p style=\"text-align: center;\"><img src=\"https://img.loigiaihay.com/picture/2023/0117/1673948738150-doan-tau.jpg\" alt=\"\" width=\"150\" height=\"83\" /></p>\n<p>Một đo&agrave;n t&agrave;u chở h&agrave;ng gồm 9 toa t&agrave;u, mỗi toa t&agrave;u chở 10 810 kg h&agrave;ng h&oacute;a. Vậy khối lượng h&agrave;ng h&oacute;a đo&agrave;n t&agrave;u đ&oacute; chở l&agrave;:</p>"
+        }
+      ],
+      "answers": [
+        {
+          "id": "3",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>19 810 kg</p>"
+            }
+          ],
+          "answer_key": "a",
+          "correct": false,
+          "question": "2"
+        },
+        {
+          "id": "4",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>90 290 kg</p>"
+            }
+          ],
+          "answer_key": "b",
+          "correct": false,
+          "question": "2"
+        },
+        {
+          "id": "5",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>97 290 kg</p>"
+            }
+          ],
+          "answer_key": "c",
+          "correct": true,
+          "question": "2"
+        },
+        {
+          "id": "6",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>10 810 kg</p>"
+            }
+          ],
+          "answer_key": "d",
+          "correct": false,
+          "question": "2"
+        }
+      ],
+      "quiz": "1"
+    },
+    "solution_suggesstion": [
+      {
+        "type": "html",
+        "content": "<p>Khối lượng h&agrave;ng h&oacute;a đo&agrave;n t&agrave;u đ&oacute; chở = Khối lượng mỗi toa chở được x số toa</p>"
+      }
+    ],
+    "related_lesson": [],
+    "solution_detail": [
+      {
+        "type": "html",
+        "content": "<p style=\"text-align: center;\">Khối lượng h&agrave;ng h&oacute;a đo&agrave;n t&agrave;u đ&oacute; chở được l&agrave;</p>\n<p style=\"text-align: center;\">10 810 x 9 = 97 290 (kg)</p>\n<p style=\"text-align: center;\">Đ&aacute;p số:&nbsp;97 290 kg</p>"
+      }
+    ],
+    "note": [],
+    "group_id": "63c66ee004c27e6cc438154d",
+    "order": 2,
+    "sub_order": 1,
+    "idx": 139000,
+    "created_date": "2023-01-17T09:48:16.568Z",
+    "updated_date": "2023-01-18T01:33:27.497Z",
+    "__v": 0,
+    "total_question": 1
+  },
+
+  {
+    "_id": "63c66e0c04c27e6cc4381546",
+    "question_style": {
+      "general": 1,
+      "mobile": 1
+    },
+    "author": {
+      "id": "6205c0abc873840356380648",
+      "name": "thaont"
+    },
+    "analytics": {
+      "correct": 0,
+      "incorrect": 0,
+      "skiped": 0,
+      "total_answer": 0,
+      "percent_false": 0
+    },
+    "modified_history": [
+      {
+        "_id": "63c66e0c04c27e6cc4381547",
+        "author": {
+          "id": "6205c0abc873840356380648",
+          "name": "thaont"
+        },
+        "reason": "Đã thêm câu hỏi gốc mới",
+        "revision": 1673948684,
+        "content": {
+          "state": 1
+        },
+        "modified_time": "Tue Jan 17 2023 16:44:44 GMT+0700 (Indochina Time)"
+      },
+      {
+        "_id": "63c676f104c27e6cc4381578",
+        "author": {
+          "id": "6205c0abc873840356380648",
+          "name": "thaont"
+        },
+        "reason": "State",
+        "revision": 1673950961,
+        "content": {
+          "state": 4
+        },
+        "modified_time": "Tue Jan 17 2023 17:22:41 GMT+0700 (Indochina Time)"
+      }
+    ],
+    "state": 4,
+    "content_type": 2,
+    "question_type": 1,
+    "difficult_degree": 3,
+    "same_type": 1,
+    "question": {
+      "id": "2",
+      "content": [
+        {
+          "type": "html",
+          "content": "<p style=\"text-align: center;\"><img src=\"https://img.loigiaihay.com/picture/2023/0117/1673948498241-hoa-qua.jpg\" alt=\"\" width=\"150\" height=\"84\" /></p>\n<p style=\"text-align: center;\">Gi&aacute; trị của biểu thức 6 x (22 229 &ndash; 12 114) l&agrave;:</p>"
+        }
+      ],
+      "answers": [
+        {
+          "id": "3",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>60 690</p>"
+            }
+          ],
+          "answer_key": "a",
+          "correct": true,
+          "question": "2"
+        },
+        {
+          "id": "4",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>121 260</p>"
+            }
+          ],
+          "answer_key": "b",
+          "correct": false,
+          "question": "2"
+        },
+        {
+          "id": "5",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>121 380</p>"
+            }
+          ],
+          "answer_key": "c",
+          "correct": false,
+          "question": "2"
+        },
+        {
+          "id": "6",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>60 660</p>"
+            }
+          ],
+          "answer_key": "d",
+          "correct": false,
+          "question": "2"
+        }
+      ],
+      "quiz": "1"
+    },
+    "solution_suggesstion": [
+      {
+        "type": "html",
+        "content": "<p>Với biểu thức c&oacute; chứa dấu ngoặc ta thực hiện ph&eacute;p t&iacute;nh ở trong ngoặc trước.</p>"
+      }
+    ],
+    "related_lesson": [],
+    "solution_detail": [
+      {
+        "type": "html",
+        "content": "<p>6 x (22 229 &ndash; 12 114) = 6 x 10 115 = 60 690</p>"
+      }
+    ],
+    "note": [],
+    "group_id": "63c66e0c04c27e6cc4381548",
+    "order": 1,
+    "sub_order": 1,
+    "idx": 138999,
+    "created_date": "2023-01-17T09:44:44.048Z",
+    "updated_date": "2023-01-17T10:22:41.045Z",
+    "__v": 0,
+    "total_question": 1
+  },
+
+  {
+    "_id": "63c60d7704c27e6cc438136a",
+    "question_style": {
+      "general": 1,
+      "mobile": 1
+    },
+    "author": {
+      "id": "6205c0abc873840356380648",
+      "name": "thaont"
+    },
+    "analytics": {
+      "correct": 0,
+      "incorrect": 0,
+      "skiped": 0,
+      "total_answer": 0,
+      "percent_false": 0
+    },
+    "modified_history": [
+      {
+        "_id": "63c60d7704c27e6cc438136b",
+        "author": {
+          "id": "6205c0abc873840356380648",
+          "name": "thaont"
+        },
+        "reason": "Đã thêm câu hỏi gốc mới",
+        "revision": 1673923959,
+        "content": {
+          "state": 1
+        },
+        "modified_time": "Tue Jan 17 2023 09:52:39 GMT+0700 (Indochina Time)"
+      },
+      {
+        "_id": "63c60d9104c27e6cc438136f",
+        "author": {
+          "id": "6205c0abc873840356380648",
+          "name": "thaont"
+        },
+        "reason": "State",
+        "revision": 1673923985,
+        "content": {
+          "state": 4
+        },
+        "modified_time": "Tue Jan 17 2023 09:53:05 GMT+0700 (Indochina Time)"
+      }
+    ],
+    "state": 4,
+    "content_type": 2,
+    "question_type": 1,
+    "difficult_degree": 3,
+    "same_type": 1,
+    "question": {
+      "id": "2",
+      "content": [
+        {
+          "type": "html",
+          "content": "<p style=\"text-align: center;\"><img src=\"https://img.loigiaihay.com/picture/2023/0117/1673923752006-but-chi.jpg\" alt=\"\" width=\"110\" height=\"151\" /></p>\n<p style=\"text-align: center;\">Hiệu của số lớn nhất c&oacute; 5 chữ số kh&aacute;c nhau v&agrave; số nhỏ nhất c&oacute; 5 chữ số l&agrave;:</p>\n<p>&nbsp;</p>"
+        }
+      ],
+      "answers": [
+        {
+          "id": "3",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>89 999</p>"
+            }
+          ],
+          "answer_key": "a",
+          "correct": false,
+          "question": "2"
+        },
+        {
+          "id": "4",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>87 765</p>"
+            }
+          ],
+          "answer_key": "b",
+          "correct": false,
+          "question": "2"
+        },
+        {
+          "id": "5",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>89 765</p>"
+            }
+          ],
+          "answer_key": "c",
+          "correct": false,
+          "question": "2"
+        },
+        {
+          "id": "6",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>88 765</p>"
+            }
+          ],
+          "answer_key": "d",
+          "correct": true,
+          "question": "2"
+        }
+      ],
+      "quiz": "1"
+    },
+    "solution_suggesstion": [
+      {
+        "type": "html",
+        "content": "<p>- T&igrave;m số lớn nhất c&oacute; 5 chữ số kh&aacute;c nhau v&agrave; số nhỏ nhất c&oacute; 5 chữ số</p>\n<p>- T&igrave;m hiệu hai số đ&oacute;</p>"
+      }
+    ],
+    "related_lesson": [],
+    "solution_detail": [
+      {
+        "type": "html",
+        "content": "<p>Số lớn nhất c&oacute; 5 chữ số kh&aacute;c nhau l&agrave; 98 765&nbsp;</p>\n<p>Số nhỏ nhất c&oacute; 5 chữ số l&agrave; 10 000</p>\n<p>Hiệu của hai số l&agrave;&nbsp;98 765 - 10 000 = 88 765</p>"
+      }
+    ],
+    "note": [],
+    "group_id": "63c60d7704c27e6cc438136c",
+    "order": 8,
+    "sub_order": 1,
+    "idx": 138998,
+    "created_date": "2023-01-17T02:52:39.238Z",
+    "updated_date": "2023-01-17T02:53:05.782Z",
+    "__v": 0,
+    "total_question": 1
+  },
+
+  {
+    "_id": "63c602c704c27e6cc4381331",
+    "question_style": {
+      "general": 1,
+      "mobile": 1
+    },
+    "author": {
+      "id": "6205c0abc873840356380648",
+      "name": "thaont"
+    },
+    "analytics": {
+      "correct": 0,
+      "incorrect": 0,
+      "skiped": 0,
+      "total_answer": 0,
+      "percent_false": 0
+    },
+    "modified_history": [
+      {
+        "_id": "63c602c704c27e6cc4381332",
+        "author": {
+          "id": "6205c0abc873840356380648",
+          "name": "thaont"
+        },
+        "reason": "Đã thêm câu hỏi gốc mới",
+        "revision": 1673921223,
+        "content": {
+          "state": 1
+        },
+        "modified_time": "Tue Jan 17 2023 09:07:03 GMT+0700 (Indochina Time)"
+      }
+    ],
+    "state": 1,
+    "content_type": 2,
+    "question_type": 1,
+    "difficult_degree": 3,
+    "same_type": 1,
+    "question": {
+      "id": "2",
+      "content": [
+        {
+          "type": "html",
+          "content": "<p style=\"text-align: center;\"><img src=\"https://img.loigiaihay.com/picture/2023/0117/1673920857871-chiec-coc.jpg\" alt=\"\" width=\"130\" height=\"112\" /></p>\n<p>Hưởng ứng phong tr&agrave;o &ldquo;Kế hoạch nhỏ&rdquo;, trường tiểu học Minh Khai đ&atilde; thu gom được 2 815 kg giấy vụn, trường tiểu học Kim Đồng thu gom được nhiều hơn trường tiểu học Minh Khai 520 kg giấy vụn. Vậy số giấy vụn cả hai trường thu gom được l&agrave;:</p>"
+        }
+      ],
+      "answers": [
+        {
+          "id": "3",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>5 140 kg</p>"
+            }
+          ],
+          "answer_key": "a",
+          "correct": false,
+          "question": "2"
+        },
+        {
+          "id": "4",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>5 150 kg</p>"
+            }
+          ],
+          "answer_key": "b",
+          "correct": false,
+          "question": "2"
+        },
+        {
+          "id": "5",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>4 140 kg</p>"
+            }
+          ],
+          "answer_key": "c",
+          "correct": false,
+          "question": "2"
+        },
+        {
+          "id": "6",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>6 150 kg</p>"
+            }
+          ],
+          "answer_key": "d",
+          "correct": true,
+          "question": "2"
+        }
+      ],
+      "quiz": "1"
+    },
+    "solution_suggesstion": [
+      {
+        "type": "html",
+        "content": "<p>- Số kg giấy trường tiểu học Kim Đồng thu gom = Số&nbsp;kg giấy trường tiểu học Minh Khai thu gom + 520 kg</p>\n<p>- T&igrave;m số kg giấy cả 2 trường thu gom được</p>"
+      }
+    ],
+    "related_lesson": [],
+    "solution_detail": [
+      {
+        "type": "html",
+        "content": "<p style=\"text-align: center;\">Số ki-l&ocirc;-gam giấy vụn trường tiểu học Kim Đồng thu gom được l&agrave;</p>\n<p style=\"text-align: center;\">2 815 + 520 = 3 335 (kg)</p>\n<p style=\"text-align: center;\">Số ki-l&ocirc;-gam giấy vụn cả hai trường thu gom được l&agrave;</p>\n<p style=\"text-align: center;\">2 815 + 3335 = 6 150 (kg)</p>\n<p style=\"text-align: center;\">Đ&aacute;p số:&nbsp;6 150 kg</p>"
+      }
+    ],
+    "note": [],
+    "group_id": "63c602c704c27e6cc4381333",
+    "order": 6,
+    "sub_order": 1,
+    "idx": 138996,
+    "created_date": "2023-01-17T02:07:03.096Z",
+    "updated_date": "2023-01-17T02:07:03.115Z",
+    "__v": 0,
+    "total_question": 1
+  },
+
+  {
+    "_id": "63c5257504c27e6cc4381314",
+    "question_style": {
+      "general": 1,
+      "mobile": 1
+    },
+    "author": {
+      "id": "6205c0abc873840356380648",
+      "name": "thaont"
+    },
+    "analytics": {
+      "correct": 0,
+      "incorrect": 0,
+      "skiped": 0,
+      "total_answer": 0,
+      "percent_false": 0
+    },
+    "modified_history": [
+      {
+        "_id": "63c5257504c27e6cc4381315",
+        "author": {
+          "id": "6205c0abc873840356380648",
+          "name": "thaont"
+        },
+        "reason": "Đã thêm câu hỏi gốc mới",
+        "revision": 1673864565,
+        "content": {
+          "state": 1
+        },
+        "modified_time": "Mon Jan 16 2023 17:22:45 GMT+0700 (Indochina Time)"
+      },
+      {
+        "_id": "63c525b604c27e6cc4381322",
+        "author": {
+          "id": "6205c0abc873840356380648",
+          "name": "thaont"
+        },
+        "reason": "State",
+        "revision": 1673864630,
+        "content": {
+          "state": 4
+        },
+        "modified_time": "Mon Jan 16 2023 17:23:50 GMT+0700 (Indochina Time)"
+      },
+      {
+        "_id": "63c609d904c27e6cc4381367",
+        "author": {
+          "id": "6205c0abc873840356380648",
+          "name": "thaont"
+        },
+        "reason": "thêm ảnh",
+        "revision": 1673923033,
+        "content": {
+          "state": 99
+        },
+        "modified_time": "Tue Jan 17 2023 09:37:13 GMT+0700 (Indochina Time)"
+      }
+    ],
+    "state": 4,
+    "content_type": 2,
+    "question_type": 1,
+    "difficult_degree": 3,
+    "same_type": 1,
+    "question": {
+      "id": "2",
+      "content": [
+        {
+          "type": "html",
+          "content": "<p style=\"text-align: center;\"><img src=\"https://img.loigiaihay.com/picture/2023/0117/1673923018711-banh.jpg\" alt=\"\" width=\"120\" height=\"120\" /></p>\n<p>Mẹ đi chợ mua 1 chai nước mắm hết 34 000 đồng v&agrave; 1 g&oacute;i hạt n&ecirc;m hết 37 000 đồng. Mẹ đưa cho c&ocirc; b&aacute;n h&agrave;ng một số tiền v&agrave; được trả lại 9000 đồng. Vậy mẹ đưa cho c&ocirc; b&aacute;n h&agrave;ng bao nhi&ecirc;u tiền?</p>"
+        }
+      ],
+      "answers": [
+        {
+          "id": "3",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>62 000 đồng</p>"
+            }
+          ],
+          "answer_key": "a",
+          "correct": false,
+          "question": "2"
+        },
+        {
+          "id": "4",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>80 000 đồng</p>"
+            }
+          ],
+          "answer_key": "b",
+          "correct": true,
+          "question": "2"
+        },
+        {
+          "id": "5",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>100 000 đồng</p>"
+            }
+          ],
+          "answer_key": "c",
+          "correct": false,
+          "question": "2"
+        },
+        {
+          "id": "6",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>71 000 đồng</p>"
+            }
+          ],
+          "answer_key": "d",
+          "correct": false,
+          "question": "2"
+        }
+      ],
+      "quiz": "1"
+    },
+    "solution_suggesstion": [
+      {
+        "type": "html",
+        "content": "<p>Số tiền mẹ đưa c&ocirc; b&aacute;n h&agrave;ng = Số tiền mua nước mắm + số tiền mua hạt n&ecirc;m + số tiền được trả lại</p>"
+      }
+    ],
+    "related_lesson": [],
+    "solution_detail": [
+      {
+        "type": "html",
+        "content": "<p style=\"text-align: center;\">Mẹ đưa cho c&ocirc; b&aacute;n h&agrave;ng số tiền l&agrave;</p>\n<p style=\"text-align: center;\">34 000 + 37 000 + 9 000 = 80 000 (đồng)</p>\n<p style=\"text-align: center;\">Đ&aacute;p số:&nbsp;80 000 đồng</p>"
+      }
+    ],
+    "note": [],
+    "group_id": "63c5257504c27e6cc4381316",
+    "order": 4,
+    "sub_order": 1,
+    "idx": 138994,
+    "created_date": "2023-01-16T10:22:45.371Z",
+    "updated_date": "2023-01-17T02:37:13.556Z",
+    "__v": 0,
+    "total_question": 1
+  },
+
+  {
+    "_id": "63c5249a04c27e6cc438130f",
+    "question_style": {
+      "general": 1,
+      "mobile": 1
+    },
+    "author": {
+      "id": "6205c0abc873840356380648",
+      "name": "thaont"
+    },
+    "analytics": {
+      "correct": 0,
+      "incorrect": 0,
+      "skiped": 0,
+      "total_answer": 0,
+      "percent_false": 0
+    },
+    "modified_history": [
+      {
+        "_id": "63c5249a04c27e6cc4381310",
+        "author": {
+          "id": "6205c0abc873840356380648",
+          "name": "thaont"
+        },
+        "reason": "Đã thêm câu hỏi gốc mới",
+        "revision": 1673864346,
+        "content": {
+          "state": 1
+        },
+        "modified_time": "Mon Jan 16 2023 17:19:06 GMT+0700 (Indochina Time)"
+      },
+      {
+        "_id": "63c525ae04c27e6cc438131f",
+        "author": {
+          "id": "6205c0abc873840356380648",
+          "name": "thaont"
+        },
+        "reason": "State",
+        "revision": 1673864622,
+        "content": {
+          "state": 4
+        },
+        "modified_time": "Mon Jan 16 2023 17:23:42 GMT+0700 (Indochina Time)"
+      },
+      {
+        "_id": "63c6099b04c27e6cc438135e",
+        "author": {
+          "id": "6205c0abc873840356380648",
+          "name": "thaont"
+        },
+        "reason": "thêm ảnh",
+        "revision": 1673922971,
+        "content": {
+          "state": 99
+        },
+        "modified_time": "Tue Jan 17 2023 09:36:11 GMT+0700 (Indochina Time)"
+      }
+    ],
+    "state": 4,
+    "content_type": 2,
+    "question_type": 1,
+    "difficult_degree": 3,
+    "same_type": 1,
+    "question": {
+      "id": "2",
+      "content": [
+        {
+          "type": "html",
+          "content": "<p style=\"text-align: center;\"><img src=\"https://img.loigiaihay.com/picture/2023/0117/1673922960134-co-be.jpg\" alt=\"\" width=\"121\" height=\"162\" /></p>\n<p style=\"text-align: center;\">Gi&aacute; trị của biểu thức 31 916 &ndash; 17 305 &ndash; 10120 l&agrave;:</p>"
+        }
+      ],
+      "answers": [
+        {
+          "id": "3",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>4 491</p>"
+            }
+          ],
+          "answer_key": "a",
+          "correct": true,
+          "question": "2"
+        },
+        {
+          "id": "4",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>14 491</p>"
+            }
+          ],
+          "answer_key": "b",
+          "correct": false,
+          "question": "2"
+        },
+        {
+          "id": "5",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>4 591</p>"
+            }
+          ],
+          "answer_key": "c",
+          "correct": false,
+          "question": "2"
+        },
+        {
+          "id": "6",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>5034</p>"
+            }
+          ],
+          "answer_key": "d",
+          "correct": false,
+          "question": "2"
+        }
+      ],
+      "quiz": "1"
+    },
+    "solution_suggesstion": [
+      {
+        "type": "html",
+        "content": "<p>Với biểu thức chỉ chứa ph&eacute;p t&iacute;nh cộng, trừ ta thực hiện lần lượt từ tr&aacute;i sang phải.</p>"
+      }
+    ],
+    "related_lesson": [],
+    "solution_detail": [
+      {
+        "type": "html",
+        "content": "<p>31 916 &ndash; 17 305 &ndash; 10 120 = 14 611&nbsp; - 10 120</p>\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= 4491</p>"
+      }
+    ],
+    "note": [],
+    "group_id": "63c5249a04c27e6cc4381311",
+    "order": 3,
+    "sub_order": 1,
+    "idx": 138993,
+    "created_date": "2023-01-16T10:19:06.995Z",
+    "updated_date": "2023-01-17T02:36:11.342Z",
+    "__v": 0,
+    "total_question": 1
+  },
+
+  {
+    "_id": "63c5220904c27e6cc438130a",
+    "question_style": {
+      "general": 1,
+      "mobile": 1
+    },
+    "author": {
+      "id": "6205c0abc873840356380648",
+      "name": "thaont"
+    },
+    "analytics": {
+      "correct": 0,
+      "incorrect": 0,
+      "skiped": 0,
+      "total_answer": 0,
+      "percent_false": 0
+    },
+    "modified_history": [
+      {
+        "_id": "63c5220904c27e6cc438130b",
+        "author": {
+          "id": "6205c0abc873840356380648",
+          "name": "thaont"
+        },
+        "reason": "Đã thêm câu hỏi gốc mới",
+        "revision": 1673863689,
+        "content": {
+          "state": 1
+        },
+        "modified_time": "Mon Jan 16 2023 17:08:09 GMT+0700 (Indochina Time)"
+      },
+      {
+        "_id": "63c5259e04c27e6cc438131c",
+        "author": {
+          "id": "6205c0abc873840356380648",
+          "name": "thaont"
+        },
+        "reason": "State",
+        "revision": 1673864606,
+        "content": {
+          "state": 4
+        },
+        "modified_time": "Mon Jan 16 2023 17:23:26 GMT+0700 (Indochina Time)"
+      }
+    ],
+    "state": 4,
+    "content_type": 2,
+    "question_type": 1,
+    "difficult_degree": 2,
+    "same_type": 1,
+    "question": {
+      "id": "2",
+      "content": [
+        {
+          "type": "html",
+          "content": "<p>Hiền mua một quyển truyện gi&aacute; 29 000 đồng, mua hộp b&uacute;t hết 47 000 đồng. Hiền đưa cho c&ocirc; b&aacute;n h&agrave;ng 100 000 đồng. Hỏi c&ocirc; b&aacute;n h&agrave;ng trả lại cho Hiền bao nhi&ecirc;u tiền?</p>"
+        }
+      ],
+      "answers": [
+        {
+          "id": "3",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>34 000 đồng</p>"
+            }
+          ],
+          "answer_key": "a",
+          "correct": false,
+          "question": "2"
+        },
+        {
+          "id": "4",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>66 000 đồng</p>"
+            }
+          ],
+          "answer_key": "b",
+          "correct": false,
+          "question": "2"
+        },
+        {
+          "id": "5",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>24 000 đồng</p>"
+            }
+          ],
+          "answer_key": "c",
+          "correct": true,
+          "question": "2"
+        },
+        {
+          "id": "6",
+          "text": [
+            {
+              "type": "html",
+              "content": "<p>76 000 đồng</p>"
+            }
+          ],
+          "answer_key": "d",
+          "correct": false,
+          "question": "2"
+        }
+      ],
+      "quiz": "1"
+    },
+    "solution_suggesstion": [
+      {
+        "type": "html",
+        "content": "<p>- T&igrave;m tổng số tiền Hiền mua quyển truyện v&agrave; hộp b&uacute;t</p>\n<p>- T&igrave;m số tiền phải trả lại = 100 000 - số tiền Hiền đ&atilde; mua</p>"
+      }
+    ],
+    "related_lesson": [],
+    "solution_detail": [
+      {
+        "type": "html",
+        "content": "<p style=\"text-align: center;\">Hiền mua quyển truyện v&agrave; hộp b&uacute;t hết số tiền l&agrave;</p>\n<p style=\"text-align: center;\">29 000 + 47 000 = 76 000 (đồng)</p>\n<p style=\"text-align: center;\">C&ocirc; b&aacute;n h&agrave;ng trả lại cho Hiền số tiền l&agrave;</p>\n<p style=\"text-align: center;\">100 000 - 76 000 = 24 000 (đồng)</p>\n<p style=\"text-align: center;\">Đ&aacute;p số: 24 000 đồng</p>\n<p style=\"text-align: center;\">&nbsp;</p>"
+      }
+    ],
+    "note": [],
+    "group_id": "63c5220904c27e6cc438130c",
+    "order": 2,
+    "sub_order": 1,
+    "idx": 138992,
+    "created_date": "2023-01-16T10:08:09.344Z",
+    "updated_date": "2023-01-16T10:23:26.196Z",
+    "__v": 0,
+    "total_question": 1
+  }
+]
