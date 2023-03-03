@@ -1,3 +1,4 @@
+import { AnimatePresence, motion } from 'framer-motion';
 import { createPortal } from 'react-dom';
 import { useConfirmDialog } from '@/components/ConfirmDialog/ConfirmDialogContext';
 import cx from '@/utils/classnames';
@@ -36,21 +37,32 @@ const ConfirmDialog = ({
 }: ConfirmDialogProps) => {
   const { showDialog, onConfirm, onCancel } = useConfirmDialog();
 
-  return showDialog
-    ? createPortal(
+  return createPortal(
+    <AnimatePresence>
+      {showDialog && (
         <div className="relative z-10">
-          <div
+          <motion.div
             aria-hidden
             className={cx('fixed inset-0 bg-black/25', cxs?.backdrop)}
             onClick={onCancel}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
           />
           <div className="pointer-events-none fixed inset-0 overflow-y-auto">
             <div className="flex min-h-full items-center justify-center p-4">
-              <div
+              <motion.div
                 className={cx(
                   'pointer-events-auto max-w-md overflow-hidden rounded-2xl bg-white shadow-xl',
                   cxs?.dialog,
                 )}
+                initial={{ scale: 0.75, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{
+                  scale: 0.75,
+                  opacity: 0,
+                  transition: { duration: 0.3 },
+                }}
               >
                 <div
                   className={cx(
@@ -94,13 +106,14 @@ const ConfirmDialog = ({
                     </button>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
-        </div>,
-        document.body,
-      )
-    : null;
+        </div>
+      )}
+    </AnimatePresence>,
+    document.body,
+  );
 };
 
 export default ConfirmDialog;
