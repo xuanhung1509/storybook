@@ -14,9 +14,13 @@ interface ConfirmDialogProps {
    */
   description?: string;
 
-  confirmButtonText?: string;
-
-  cancelButtonText?: string;
+  /**
+   * `textContent`: Tùy chỉnh text của các thành phần của hộp thoại.
+   */
+  textContent?: Partial<{
+    confirmButtonText: string;
+    cancelButtonText: string;
+  }>;
 
   /**
    * `classNames`: Tùy chỉnh style của các thành phần của hộp thoại.
@@ -37,8 +41,7 @@ interface ConfirmDialogProps {
 const ConfirmDialog = ({
   title = 'Bạn chưa chọn câu trả lời',
   description = 'Bạn có muốn bỏ qua câu hỏi này không?',
-  confirmButtonText = 'Confirm',
-  cancelButtonText = 'Cancel',
+  textContent,
   classNames: cxs,
 }: ConfirmDialogProps) => {
   const { showDialog, onConfirm, onCancel } = useConfirmDialog();
@@ -98,7 +101,7 @@ const ConfirmDialog = ({
                       )}
                       onClick={onConfirm}
                     >
-                      {confirmButtonText}
+                      {textContent?.confirmButtonText || 'Confirm'}
                     </button>
                     <button
                       type="button"
@@ -108,7 +111,7 @@ const ConfirmDialog = ({
                       )}
                       onClick={onCancel}
                     >
-                      {cancelButtonText}
+                      {textContent?.cancelButtonText || 'Cancel'}
                     </button>
                   </div>
                 </div>
