@@ -34,9 +34,9 @@ const ConfirmDialog = ({
   description = 'Bạn có muốn bỏ qua câu hỏi này không?',
   classNames: cxs,
 }: ConfirmDialogProps) => {
-  const { showConfirmDialog, onConfirm, onCancel } = useConfirmDialog();
+  const { showDialog, onConfirm, onCancel } = useConfirmDialog();
 
-  return showConfirmDialog
+  return showDialog
     ? createPortal(
         <div className="relative z-10">
           <div
