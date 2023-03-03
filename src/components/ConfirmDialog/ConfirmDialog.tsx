@@ -1,8 +1,8 @@
 import { createPortal } from 'react-dom';
-import { useConfirmationDialog } from '@/components/ConfirmationDialog/ConfirmationDialogContext';
+import { useConfirmDialog } from '@/components/ConfirmDialog/ConfirmDialogContext';
 import cx from '@/utils/classnames';
 
-interface ConfirmationDialogProps {
+interface ConfirmDialogProps {
   /**
    * `title`: Tiêu đề của hộp thoại.
    */
@@ -29,15 +29,14 @@ interface ConfirmationDialogProps {
   }>;
 }
 
-const ConfirmationDialog = ({
+const ConfirmDialog = ({
   title = 'Bạn chưa chọn câu trả lời',
   description = 'Bạn có muốn bỏ qua câu hỏi này không?',
   classNames: cxs,
-}: ConfirmationDialogProps) => {
-  const { showConfirmationDialog, onConfirm, onCancel } =
-    useConfirmationDialog();
+}: ConfirmDialogProps) => {
+  const { showConfirmDialog, onConfirm, onCancel } = useConfirmDialog();
 
-  return showConfirmationDialog
+  return showConfirmDialog
     ? createPortal(
         <div className="relative z-10">
           <div
@@ -104,5 +103,5 @@ const ConfirmationDialog = ({
     : null;
 };
 
-export default ConfirmationDialog;
-export type { ConfirmationDialogProps };
+export default ConfirmDialog;
+export type { ConfirmDialogProps };

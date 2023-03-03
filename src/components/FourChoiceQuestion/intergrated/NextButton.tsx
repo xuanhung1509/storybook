@@ -1,4 +1,4 @@
-import { useConfirmationDialog } from '@/components/ConfirmationDialog';
+import { useConfirmDialog } from '@/components/ConfirmDialog';
 import cx from '@/utils/classnames';
 import type { FourChoiceQuestionProps } from './types';
 
@@ -9,7 +9,7 @@ type NextButtonProps = Pick<FourChoiceQuestionProps, 'onNextClick'> & {
 };
 
 const NextButton = ({ selected, onNextClick, reset, cxs }: NextButtonProps) => {
-  const { confirm } = useConfirmationDialog();
+  const { confirm } = useConfirmDialog();
 
   const handleClick = async (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,

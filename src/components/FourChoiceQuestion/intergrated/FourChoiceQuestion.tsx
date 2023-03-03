@@ -4,9 +4,9 @@ import { ChevronRightIcon } from '@heroicons/react/20/solid';
 import { MathJax, MathJaxContext } from 'better-react-mathjax';
 import ResizablePanel from '@/components/ResizablePanel';
 import {
-  ConfirmationDialog,
-  ConfirmationDialogProvider,
-} from '@/components/ConfirmationDialog';
+  ConfirmDialog,
+  ConfirmDialogProvider,
+} from '@/components/ConfirmDialog';
 import cx from '@/utils/classnames';
 import { FourChoiceQuestionProvider } from './FourChoiceQuestionContext';
 import WithInsertedComponent from './WithInsertedComponent';
@@ -45,7 +45,7 @@ const FourChoiceQuestion = ({
   onCorrectAnswerSelect,
   onIncorrectAnswerSelect,
   insertComponent: InsertComponent,
-  ConfirmationDialog: ConfirmationDialogProps,
+  ConfirmDialog: ConfirmDialogProps,
 }: FourChoiceQuestionProps) => {
   const [showHint, setShowHint] = useState(false);
   const [selected, setSelected] = useState<string | null>(null);
@@ -88,7 +88,7 @@ const FourChoiceQuestion = ({
   };
 
   return (
-    <ConfirmationDialogProvider>
+    <ConfirmDialogProvider>
       <FourChoiceQuestionProvider
         value={{
           InsertComponent,
@@ -352,9 +352,9 @@ const FourChoiceQuestion = ({
         </MathJaxContext>
 
         {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-        <ConfirmationDialog {...ConfirmationDialogProps} />
+        <ConfirmDialog {...ConfirmDialogProps} />
       </FourChoiceQuestionProvider>
-    </ConfirmationDialogProvider>
+    </ConfirmDialogProvider>
   );
 };
 

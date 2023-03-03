@@ -1,4 +1,4 @@
-import type { ConfirmationDialogProps } from '@/components/ConfirmationDialog/ConfirmationDialog';
+import type { ConfirmDialogProps } from '@/components/ConfirmDialog/ConfirmDialog';
 
 type ContentType = 'plain' | 'html' | 'image';
 
@@ -135,9 +135,9 @@ interface FourChoiceQuestionProps {
   };
 
   /**
-   * `ConfirmationDialog`: Tùy chỉnh hộp thoại confirm.
+   * `ConfirmDialog`: Tùy chỉnh hộp thoại confirm.
    */
-  ConfirmationDialog?: ConfirmationDialogProps;
+  ConfirmDialog?: ConfirmDialogProps;
 }
 
 export type { ContentItem, InsertComponentAfter, FourChoiceQuestionProps };

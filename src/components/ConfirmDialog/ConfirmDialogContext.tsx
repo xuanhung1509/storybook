@@ -2,27 +2,23 @@ import createSafeContext from '@/helpers/createSafeContext';
 import React, { useState } from 'react';
 
 interface ContextValue {
-  showConfirmationDialog: boolean;
+  showConfirmDialog: boolean;
   open: () => void;
   close: () => void;
 }
 
 const [Provider, useSafeContext] = createSafeContext<ContextValue>();
 
-const ConfirmationDialogProvider = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
-  const [showConfirmationDialog, setShowConfirmationDialog] = useState(false);
+const ConfirmDialogProvider = ({ children }: { children: React.ReactNode }) => {
+  const [showConfirmDialog, setShowConfirmDialog] = useState(false);
 
-  const open = () => setShowConfirmationDialog(true);
-  const close = () => setShowConfirmationDialog(false);
+  const open = () => setShowConfirmDialog(true);
+  const close = () => setShowConfirmDialog(false);
 
   return (
     <Provider
       value={{
-        showConfirmationDialog,
+        showConfirmDialog,
         open,
         close,
       }}
@@ -34,8 +30,8 @@ const ConfirmationDialogProvider = ({
 
 let resolveCallback: (value: boolean) => void;
 
-const useConfirmationDialog = () => {
-  const { showConfirmationDialog, open, close } = useSafeContext();
+const useConfirmDialog = () => {
+  const { showConfirmDialog, open, close } = useSafeContext();
 
   const onConfirm = () => {
     close();
@@ -54,7 +50,7 @@ const useConfirmationDialog = () => {
     });
   };
 
-  return { showConfirmationDialog, confirm, onConfirm, onCancel };
+  return { showConfirmDialog, confirm, onConfirm, onCancel };
 };
 
-export { ConfirmationDialogProvider, useConfirmationDialog };
+export { ConfirmDialogProvider, useConfirmDialog };
