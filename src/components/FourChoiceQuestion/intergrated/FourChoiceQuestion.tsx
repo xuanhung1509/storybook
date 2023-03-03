@@ -13,6 +13,22 @@ import WithInsertedComponent from './WithInsertedComponent';
 import NextButton from './NextButton';
 import type { ContentItem, FourChoiceQuestionProps } from './types';
 
+const ContentItems = ({ items }: { items: ContentItem[] }) => (
+  <div className="flex flex-col gap-4">
+    {items.map((item) => (
+      <Fragment key={item.content}>
+        {item.type === 'plain' && <p>{item.content}</p>}
+        {item.type === 'html' && (
+          <MathJax dangerouslySetInnerHTML={{ __html: item.content }} />
+        )}
+        {item.type === 'image' && (
+          <img src={item.content} alt="" className="rounded" />
+        )}
+      </Fragment>
+    ))}
+  </div>
+);
+
 const FourChoiceQuestion = ({
   label,
   difficultyLevel,
@@ -63,22 +79,6 @@ const FourChoiceQuestion = ({
     index: renderAnswerIndex(index),
   }));
 
-  const renderContentItems = (items: ContentItem[]) => (
-    <div className="flex flex-col gap-4">
-      {items.map((item) => (
-        <Fragment key={item.content}>
-          {item.type === 'plain' && <p>{item.content}</p>}
-          {item.type === 'html' && (
-            <MathJax dangerouslySetInnerHTML={{ __html: item.content }} />
-          )}
-          {item.type === 'image' && (
-            <img src={item.content} alt="" className="rounded" />
-          )}
-        </Fragment>
-      ))}
-    </div>
-  );
-
   // Reset all states to initial
   const reset = () => {
     setShowHint(false);
@@ -126,7 +126,7 @@ const FourChoiceQuestion = ({
                   )}
                 >
                   <div className="max-h-40 overflow-y-auto px-4">
-                    {renderContentItems(commonQuestion)}
+                    <ContentItems items={commonQuestion} />
                   </div>
                 </div>
               )}
@@ -135,7 +135,7 @@ const FourChoiceQuestion = ({
             {/* Question */}
             <WithInsertedComponent currentPosition="question">
               <div className={cx('mt-4', cxs?.question)}>
-                {renderContentItems(question)}
+                <ContentItems items={question} />
               </div>
             </WithInsertedComponent>
 
@@ -205,7 +205,7 @@ const FourChoiceQuestion = ({
               >
                 <div className="pt-4">
                   <div className="rounded border p-4">
-                    {renderContentItems(hint)}
+                    <ContentItems items={hint} />
                   </div>
                 </div>
               </ResizablePanel>
@@ -319,7 +319,9 @@ const FourChoiceQuestion = ({
                     visible={showSolution}
                     className={cxs?.solution}
                   >
-                    <div className="pt-4">{renderContentItems(solution)}</div>
+                    <div className="pt-4">
+                      <ContentItems items={solution} />
+                    </div>
                   </ResizablePanel>
                 </WithInsertedComponent>
 
