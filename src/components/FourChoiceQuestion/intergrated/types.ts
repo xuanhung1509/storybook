@@ -62,6 +62,15 @@ interface FourChoiceQuestionProps {
    */
   solution: ContentItem[];
 
+  /** `textContent`: Tùy chỉnh text của các thành phần của Component. */
+  textContent?: Partial<{
+    hintButton: string;
+    checkResultButton: string;
+    nextButton: string;
+    toggleSolutionButton: string;
+    revisionButton: string;
+  }>;
+
   /**
    * `classNames`: Tùy chỉnh style của các thành phần của Component.
    */

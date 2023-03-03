@@ -38,6 +38,7 @@ const FourChoiceQuestion = ({
   hint,
   correctAnswerId,
   solution,
+  textContent,
   classNames: cxs,
   onHintClick,
   onNextClick,
@@ -231,7 +232,7 @@ const FourChoiceQuestion = ({
                     if (onHintClick) onHintClick(event);
                   }}
                 >
-                  Gợi ý
+                  {textContent?.hintButton || 'Gợi ý'}
                 </button>
                 {selected ? (
                   <button
@@ -256,10 +257,12 @@ const FourChoiceQuestion = ({
                       }
                     }}
                   >
-                    Kiểm tra
+                    {textContent?.checkResultButton || 'Kiểm tra'}
                   </button>
                 ) : (
-                  <NextButton {...{ selected, onNextClick, reset, cxs }} />
+                  <NextButton
+                    {...{ selected, onNextClick, reset, textContent, cxs }}
+                  />
                 )}
               </div>
             )}
@@ -303,7 +306,7 @@ const FourChoiceQuestion = ({
                     )}
                     onClick={() => setShowSolution((prev) => !prev)}
                   >
-                    Xem lời giải
+                    {textContent?.toggleSolutionButton || 'Xem lời giải'}
                     <ChevronRightIcon
                       className={cx(
                         'h-6 w-6 transition-transform',
@@ -342,9 +345,11 @@ const FourChoiceQuestion = ({
                       if (onRevisionClick) onRevisionClick(event);
                     }}
                   >
-                    Xem lại lý thuyết
+                    {textContent?.revisionButton || 'Xem lại lý thuyết'}
                   </button>
-                  <NextButton {...{ selected, onNextClick, reset, cxs }} />
+                  <NextButton
+                    {...{ selected, onNextClick, reset, textContent, cxs }}
+                  />
                 </div>
               </div>
             )}

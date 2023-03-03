@@ -2,19 +2,27 @@ import { useConfirmDialog } from '@/components/ConfirmDialog';
 import cx from '@/utils/classnames';
 import type { FourChoiceQuestionProps } from './types';
 
-type NextButtonProps = Pick<FourChoiceQuestionProps, 'onNextClick'> & {
+type NextButtonProps = Pick<
+  FourChoiceQuestionProps,
+  'onNextClick' | 'textContent'
+> & {
   reset: () => void;
   selected: string | null;
   cxs: FourChoiceQuestionProps['classNames'];
 };
 
-const NextButton = ({ selected, onNextClick, reset, cxs }: NextButtonProps) => {
+const NextButton = ({
+  selected,
+  onNextClick,
+  reset,
+  textContent,
+  cxs,
+}: NextButtonProps) => {
   const { confirm } = useConfirmDialog();
 
   const handleClick = async (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ) => {
-    // eslint-disable-next-line no-alert
     if (selected || (!selected && (await confirm()))) {
       onNextClick(event, selected);
       reset();
@@ -31,7 +39,7 @@ const NextButton = ({ selected, onNextClick, reset, cxs }: NextButtonProps) => {
       )}
       onClick={handleClick}
     >
-      Câu hỏi tiếp theo
+      {textContent?.nextButton || 'Câu hỏi tiếp theo'}
     </button>
   );
 };
