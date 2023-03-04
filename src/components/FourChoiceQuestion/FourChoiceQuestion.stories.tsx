@@ -31,7 +31,7 @@ const data = rawData.map(
 );
 
 export default {
-  title: 'Library/FourChoiceQuestion',
+  title: 'Library/Four-Choice Question',
   component: FourChoiceQuestion,
   argTypes: {
     difficultyLevel: {
@@ -65,7 +65,6 @@ const Template: ComponentStory<typeof FourChoiceQuestion> = (args) => {
   return (
     <div className="container mx-auto flex min-h-[80vh] flex-col items-center gap-8 py-8 px-4">
       <FourChoiceQuestion
-        {...args}
         {...{
           label,
           difficultyLevel,
@@ -76,6 +75,7 @@ const Template: ComponentStory<typeof FourChoiceQuestion> = (args) => {
           correctAnswerId,
           solution,
         }}
+        {...args}
         onNextClick={handleNextClick}
       />
     </div>
@@ -91,6 +91,17 @@ EventHandlers.argTypes = {
   onReviewClick: { action: 'onReviewClick' },
   onCorrectAnswerSelect: { action: 'onCorrectAnswerSelect' },
   onIncorrectAnswerSelect: { action: 'onIncorrectAnswerSelect' },
+};
+
+export const TextContent = Template.bind({});
+TextContent.args = {
+  textContent: {
+    hintButton: 'hintButton',
+    checkResultButton: 'checkResultButton',
+    nextButton: 'nextButton',
+    toggleSolutionButton: 'toggleSolutionButton',
+    reviewButton: 'reviewButton',
+  },
 };
 
 export const ClassNames = Template.bind({});
@@ -118,12 +129,34 @@ ClassNames.args = {
 };
 
 export const InsertComponent = Template.bind({});
-InsertComponent.argTypes = {};
 InsertComponent.args = {
   insertComponent: {
     Component: () => (
       <h2 className="font-serif text-2xl font-bold">Inserted Component</h2>
     ),
     placeAfter: 'header',
+  },
+};
+
+export const ConfirmDialog = Template.bind({});
+ConfirmDialog.args = {
+  ConfirmDialog: {
+    title: 'Tiêu đề hộp thoại',
+    description: 'Phụ đề hộp thoại',
+    textContent: {
+      confirmButtonText: 'confirmButtonText',
+      cancelButtonText: 'cancelButtonText',
+    },
+    classNames: {
+      backdrop: 'backdrop',
+      dialog: 'dialog',
+      header: 'header',
+      body: 'body',
+      title: 'title',
+      description: 'description',
+      buttonGrid: 'buttonGrid',
+      confirmButton: 'confirmButton',
+      cancelButton: 'cancelButton',
+    },
   },
 };
