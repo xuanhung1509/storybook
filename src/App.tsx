@@ -3,8 +3,8 @@
 /* eslint-disable no-console */
 /* eslint-disable import/no-named-default */
 import { useState } from 'react';
-import FourChoiceQuestion from '@/components/FourChoiceQuestion/intergrated';
-import type { FourChoiceQuestionProps } from '@/components/FourChoiceQuestion/intergrated';
+import FourChoiceQuestion from '@/components/FourChoiceQuestion';
+import type { FourChoiceQuestionProps } from '@/components/FourChoiceQuestion';
 import rawData from './data.json';
 
 const data = rawData.map(
