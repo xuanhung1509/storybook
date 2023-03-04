@@ -84,15 +84,6 @@ const Template: ComponentStory<typeof FourChoiceQuestion> = (args) => {
 
 export const Default = Template.bind({});
 
-export const EventHandlers = Template.bind({});
-EventHandlers.argTypes = {
-  onHintClick: { action: 'onHintClick' },
-  onNextClick: { action: 'onNextClick' },
-  onReviewClick: { action: 'onReviewClick' },
-  onCorrectAnswerSelect: { action: 'onCorrectAnswerSelect' },
-  onIncorrectAnswerSelect: { action: 'onIncorrectAnswerSelect' },
-};
-
 export const TextContent = Template.bind({});
 TextContent.args = {
   textContent: {
