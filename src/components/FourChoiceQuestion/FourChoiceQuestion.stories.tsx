@@ -88,7 +88,7 @@ export const EventHandlers = Template.bind({});
 EventHandlers.argTypes = {
   onHintClick: { action: 'onHintClick' },
   onNextClick: { action: 'onNextClick' },
-  onRevisionClick: { action: 'onRevisionClick' },
+  onReviewClick: { action: 'onReviewClick' },
   onCorrectAnswerSelect: { action: 'onCorrectAnswerSelect' },
   onIncorrectAnswerSelect: { action: 'onIncorrectAnswerSelect' },
 };
@@ -111,7 +111,7 @@ ClassNames.args = {
     checkResultButton: 'checkResultButton',
     nextButton: 'nextButton',
     toggleSolutionButton: 'toggleSolutionButton',
-    revisionButton: 'revisionButton',
+    reviewButton: 'reviewButton',
     buttonGrid: 'buttonGrid',
     solution: 'solution',
   },

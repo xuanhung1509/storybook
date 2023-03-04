@@ -68,7 +68,7 @@ interface FourChoiceQuestionProps {
     checkResultButton: string;
     nextButton: string;
     toggleSolutionButton: string;
-    revisionButton: string;
+    reviewButton: string;
   }>;
 
   /**
@@ -90,7 +90,7 @@ interface FourChoiceQuestionProps {
     checkResultButton: string;
     nextButton: string;
     toggleSolutionButton: string;
-    revisionButton: string;
+    reviewButton: string;
     buttonGrid: string;
     solution: string;
   }>;
@@ -115,11 +115,11 @@ interface FourChoiceQuestionProps {
   ) => void;
 
   /**
-   * `onRevisionClick`: Event handler khi nhấn nút `Xem lại lý thuyết`
+   * `onReviewClick`: Event handler khi nhấn nút `Xem lại lý thuyết`
    * @param event
    * @returns
    */
-  onRevisionClick?: (
+  onReviewClick?: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ) => void;
 

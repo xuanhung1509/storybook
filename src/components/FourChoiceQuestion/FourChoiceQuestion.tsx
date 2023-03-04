@@ -42,7 +42,7 @@ const FourChoiceQuestion = ({
   classNames: cxs,
   onHintClick,
   onNextClick,
-  onRevisionClick,
+  onReviewClick,
   onCorrectAnswerSelect,
   onIncorrectAnswerSelect,
   insertComponent: InsertComponent,
@@ -328,7 +328,7 @@ const FourChoiceQuestion = ({
                   </ResizablePanel>
                 </WithInsertedComponent>
 
-                {/* Revision & Next buttons */}
+                {/* Review & Next buttons */}
                 <div
                   className={cx(
                     'mt-4 grid w-full grid-cols-2 items-center gap-4 bg-white',
@@ -339,13 +339,13 @@ const FourChoiceQuestion = ({
                     type="button"
                     className={cx(
                       'h-full rounded-md border border-emerald-500 px-4 py-2',
-                      cxs?.revisionButton,
+                      cxs?.reviewButton,
                     )}
                     onClick={(event) => {
-                      if (onRevisionClick) onRevisionClick(event);
+                      if (onReviewClick) onReviewClick(event);
                     }}
                   >
-                    {textContent?.revisionButton || 'Xem lại lý thuyết'}
+                    {textContent?.reviewButton || 'Xem lại lý thuyết'}
                   </button>
                   <NextButton
                     {...{ selected, onNextClick, reset, textContent, cxs }}

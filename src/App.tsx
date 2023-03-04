@@ -45,7 +45,7 @@ const App = () => {
   } = data[currentQuestion];
 
   const handleNextClick = () => setCurrentQuestion((prev) => prev + 1);
-  const handleRevisionClick = () => alert('Xem lại lý thuyết');
+  const handleReviewClick = () => alert('Xem lại lý thuyết');
 
   return (
     <div className="container mx-auto flex min-h-[80vh] flex-col items-center gap-8 py-8 px-4">
@@ -61,7 +61,7 @@ const App = () => {
           solution,
         }}
         onNextClick={handleNextClick}
-        onRevisionClick={handleRevisionClick}
+        onReviewClick={handleReviewClick}
       />
     </div>
   );
