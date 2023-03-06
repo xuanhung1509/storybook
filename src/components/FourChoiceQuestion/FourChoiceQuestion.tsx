@@ -168,7 +168,8 @@ const FourChoiceQuestion = ({
                         mode === 'user-review'
                       }
                       checked={
-                        (mode === 'client-grade' && selected === id) ||
+                        (['client-grade', 'server-grade'].includes(mode) &&
+                          selected === id) ||
                         (mode === 'user-review' && selectedAnswerId === id)
                       }
                       value={id}
@@ -185,7 +186,7 @@ const FourChoiceQuestion = ({
                     <div
                       className={cx(
                         'h-4 w-4 cursor-move rounded-full border border-slate-300',
-                        mode === 'client-grade' &&
+                        ['client-grade', 'server-grade'].includes(mode) &&
                           (checkResult
                             ? 'peer-checked:bg-blue-400'
                             : 'peer-checked:bg-blue-500'),
@@ -220,7 +221,7 @@ const FourChoiceQuestion = ({
             </WithInsertedComponent>
 
             {/* Hint */}
-            {mode === 'client-grade' && (
+            {['client-grade', 'server-grade'].includes(mode) && (
               <WithInsertedComponent currentPosition="hint">
                 <ResizablePanel
                   visible={!checkResult && showHint}
@@ -236,66 +237,70 @@ const FourChoiceQuestion = ({
             )}
 
             {/* Hint & Check result/ Next buttons */}
-            {mode === 'client-grade' && !checkResult && (
-              <div
-                className={cx(
-                  'mt-4 grid grid-cols-2 items-center gap-4 bg-white',
-                  cxs?.buttonGrid,
-                )}
-              >
-                <button
-                  type="button"
+            {['client-grade', 'server-grade'].includes(mode) &&
+              !checkResult && (
+                <div
                   className={cx(
-                    'h-full rounded-md border border-emerald-500 px-4 py-2',
-                    cxs?.hintButton,
+                    'mt-4 grid grid-cols-2 items-center gap-4 bg-white',
+                    cxs?.buttonGrid,
                   )}
-                  onClick={(event) => {
-                    setShowHint((prev) => !prev);
-
-                    if (onHintClick) onHintClick(event);
-                  }}
                 >
-                  {textContent?.hintButton || 'Gợi ý'}
-                </button>
-                {selected ? (
                   <button
                     type="button"
                     className={cx(
-                      'h-full rounded-md border bg-emerald-500 px-4 py-2 text-white',
-                      cxs?.checkResultButton,
+                      'h-full rounded-md border border-emerald-500 px-4 py-2',
+                      cxs?.hintButton,
                     )}
-                    onClick={() => {
-                      setCheckResult(true);
+                    onClick={(event) => {
+                      setShowHint((prev) => !prev);
 
-                      if (
-                        selected === correctAnswerId &&
-                        onCorrectAnswerSelect
-                      ) {
-                        onCorrectAnswerSelect();
-                      } else if (
-                        selected !== correctAnswerId &&
-                        onIncorrectAnswerSelect
-                      ) {
-                        onIncorrectAnswerSelect();
-                      }
+                      if (onHintClick) onHintClick(event);
                     }}
                   >
-                    {textContent?.checkResultButton || 'Kiểm tra'}
+                    {textContent?.hintButton || 'Gợi ý'}
                   </button>
-                ) : (
-                  <NextButton
-                    {...{
-                      mode,
-                      selected,
-                      textContent,
-                      cxs,
-                      onNextClick,
-                      reset,
-                    }}
-                  />
-                )}
-              </div>
-            )}
+
+                  {mode === 'client-grade' && selected && (
+                    <button
+                      type="button"
+                      className={cx(
+                        'h-full rounded-md border bg-emerald-500 px-4 py-2 text-white',
+                        cxs?.checkResultButton,
+                      )}
+                      onClick={() => {
+                        setCheckResult(true);
+
+                        if (
+                          selected === correctAnswerId &&
+                          onCorrectAnswerSelect
+                        ) {
+                          onCorrectAnswerSelect();
+                        } else if (
+                          selected !== correctAnswerId &&
+                          onIncorrectAnswerSelect
+                        ) {
+                          onIncorrectAnswerSelect();
+                        }
+                      }}
+                    >
+                      {textContent?.checkResultButton || 'Kiểm tra'}
+                    </button>
+                  )}
+                  {((mode === 'client-grade' && !selected) ||
+                    mode === 'server-grade') && (
+                    <NextButton
+                      {...{
+                        mode,
+                        selected,
+                        textContent,
+                        cxs,
+                        onNextClick,
+                        reset,
+                      }}
+                    />
+                  )}
+                </div>
+              )}
 
             {((mode === 'client-grade' && checkResult) ||
               mode === 'user-review') && (

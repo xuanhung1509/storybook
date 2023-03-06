@@ -74,9 +74,9 @@ const App = () => {
           hint,
           solution,
         }}
-        mode="user-review"
-        correctAnswerId={String(correctAnswerId)}
-        selectedAnswerId="3"
+        mode="server-grade"
+        // correctAnswerId={String(correctAnswerId)}
+        // selectedAnswerId="3"
         onNextClick={handleNextClick}
         onReviewClick={handleReviewClick}
       />
