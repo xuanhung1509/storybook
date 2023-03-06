@@ -4,7 +4,7 @@ import type { FourChoiceQuestionProps } from './types';
 
 type NextButtonProps = Pick<
   FourChoiceQuestionProps,
-  'onNextClick' | 'textContent'
+  'mode' | 'onNextClick' | 'textContent'
 > & {
   reset: () => void;
   selected: string | null;
@@ -12,18 +12,23 @@ type NextButtonProps = Pick<
 };
 
 const NextButton = ({
+  mode,
   selected,
-  onNextClick,
-  reset,
   textContent,
   cxs,
+  onNextClick,
+  reset,
 }: NextButtonProps) => {
   const { confirm } = useConfirmDialog();
 
   const handleClick = async (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ) => {
-    if (selected || (!selected && (await confirm()))) {
+    if (
+      mode === 'user-review' ||
+      selected ||
+      (!selected && (await confirm()))
+    ) {
       onNextClick(event, selected);
       reset();
     }

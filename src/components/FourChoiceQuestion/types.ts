@@ -17,7 +17,72 @@ type InsertComponentAfter =
   | 'toggleSolutionButton'
   | 'solution';
 
-interface FourChoiceQuestionProps {
+interface ClientGradeMode {
+  /**
+   * `mode`: Các chế độ hoạt động của câu hỏi: `"client-grade"` | `"server-grade"` | `"admin-preview"` | `"user-review"`
+   * - `"client-grade"`:
+   *    - Việc kiểm tra đáp án đúng được thực hiện phía client.
+   *    - Yêu cầu prop `correctAnswerId`.
+   */
+  mode: 'client-grade';
+
+  /**
+   * `correctAnswerId`: `id` của đáp án đúng.
+   */
+  correctAnswerId: string;
+
+  // EXCLUDE
+  selectedAnswerId?: never;
+}
+
+interface ServerGradeMode {
+  /**
+   * `mode`: Các chế độ hoạt động của câu hỏi: `"client-grade"` | `"server-grade"` | `"admin-preview"` | `"user-review"`
+   * - `"server-grade"`:
+   *    - Việc kiểm tra đáp án đúng được thực hiện phía server.
+   *    - Đáp án người dùng đã chọn được trả ra trong function `onNextClick`.
+   */
+  mode: 'server-grade';
+
+  // EXCLUDE
+  correctAnswerId?: never;
+  selectedAnswerId?: never;
+}
+
+interface AdminPreviewMode {
+  /**
+   * `mode`: Các chế độ hoạt động của câu hỏi: `"client-grade"` | `"server-grade"` | `"admin-preview"` | `"user-review"`
+   * - `"admin-preview"`: Đang cập nhật.
+   */
+  mode: 'admin-preview';
+
+  // EXCLUDE
+  correctAnswerId?: never;
+  selectedAnswerId?: never;
+}
+
+interface UserReviewMode {
+  /**
+   * `mode`: Các chế độ hoạt động của câu hỏi: `"client-grade"` | `"server-grade"` | `"admin-preview"` | `"user-review"`
+   * - `"user-review"`:
+   *    - Sử dụng trong trường hợp cho học sinh xem lại đáp án.
+   *    - Học sinh được phép xem đáp án đã chọn, đáp án đúng, lời giải và chuyển câu tiếp theo.
+   *    - Yêu cầu prop `correctAnswerId`, `selectedAnswerId`.
+   */
+  mode: 'user-review';
+
+  /**
+   * `correctAnswerId`: `id` của đáp án đúng.
+   */
+  correctAnswerId: string;
+
+  /**
+   *  `selectedAnswerId`: Đáp án học sinh đã chọn (trong chế độ xem lại).
+   */
+  selectedAnswerId: string;
+}
+
+interface FourChoiceQuestionWithoutModeProps {
   /**
    * `label`: Nhãn câu hỏi. Ví dụ: `Câu 1`.
    */
@@ -51,11 +116,6 @@ interface FourChoiceQuestionProps {
    * `hint`: Gợi ý đáp án.
    */
   hint: ContentItem[];
-
-  /**
-   * `correctAnswerId`: `id` của đáp án đúng.
-   */
-  correctAnswerId: string;
 
   /**
    * `solution`: Lời giải của giáo viên.
@@ -97,8 +157,6 @@ interface FourChoiceQuestionProps {
 
   /**
    * `onHintClick`: Event handler khi nhấn nút `Gợi ý`
-   * @param event
-   * @returns
    */
   onHintClick?: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
@@ -106,8 +164,6 @@ interface FourChoiceQuestionProps {
 
   /**
    * `onNextClick`: Event handler khi nhấn nút `Câu hỏi tiếp theo`
-   * @param event @param selected
-   * @returns
    */
   onNextClick: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
@@ -116,8 +172,6 @@ interface FourChoiceQuestionProps {
 
   /**
    * `onReviewClick`: Event handler khi nhấn nút `Xem lại lý thuyết`
-   * @param event
-   * @returns
    */
   onReviewClick?: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
@@ -125,13 +179,11 @@ interface FourChoiceQuestionProps {
 
   /**
    * `onCorrectAnswerSelect`: Event handler khi nhấn nút `Kiểm tra` và đáp án đã chọn là đáp án đúng.
-   * @returns
    */
   onCorrectAnswerSelect?: () => void;
 
   /**
    * `onIncorrectAnswerSelect`: Event handler khi nhấn nút `Kiểm tra` và đáp án đã chọn là đáp án sai.
-   * @returns
    */
   onIncorrectAnswerSelect?: () => void;
 
@@ -148,5 +200,8 @@ interface FourChoiceQuestionProps {
    */
   ConfirmDialog?: ConfirmDialogProps;
 }
+
+type FourChoiceQuestionProps = FourChoiceQuestionWithoutModeProps &
+  (ClientGradeMode | ServerGradeMode | AdminPreviewMode | UserReviewMode);
 
 export type { ContentItem, InsertComponentAfter, FourChoiceQuestionProps };

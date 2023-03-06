@@ -30,6 +30,7 @@ const ContentItems = ({ items }: { items: ContentItem[] }) => (
 );
 
 const FourChoiceQuestion = ({
+  mode,
   label,
   difficultyLevel,
   commonQuestion,
@@ -38,6 +39,7 @@ const FourChoiceQuestion = ({
   hint,
   correctAnswerId,
   solution,
+  selectedAnswerId,
   textContent,
   classNames: cxs,
   onHintClick,
@@ -161,20 +163,39 @@ const FourChoiceQuestion = ({
                       name="answer-radio"
                       id={id}
                       className="peer absolute top-0 left-0 z-10 h-full w-full cursor-pointer opacity-0"
-                      disabled={checkResult}
-                      checked={selected === id}
+                      disabled={
+                        (mode === 'client-grade' && checkResult) ||
+                        mode === 'user-review'
+                      }
+                      checked={
+                        (mode === 'client-grade' && selected === id) ||
+                        (mode === 'user-review' && selectedAnswerId === id)
+                      }
                       value={id}
                       onChange={(e) => {
                         const answer = e.target.value;
                         setSelected(answer);
 
                         // Mặc định không hiện lời giải nếu học sinh chọn đúng
-                        setShowSolution(answer !== correctAnswerId);
+                        if (mode === 'client-grade') {
+                          setShowSolution(answer !== correctAnswerId);
+                        }
                       }}
                     />
                     <div
                       className={cx(
-                        'h-4 w-4 cursor-move rounded-full border border-slate-300 bg-slate-100 peer-checked:bg-blue-500',
+                        'h-4 w-4 cursor-move rounded-full border border-slate-300',
+                        mode === 'client-grade' &&
+                          (checkResult
+                            ? 'peer-checked:bg-blue-400'
+                            : 'peer-checked:bg-blue-500'),
+                        mode === 'user-review' &&
+                          (selectedAnswerId === correctAnswerId
+                            ? 'peer-checked:bg-emerald-500'
+                            : 'peer-checked:bg-red-500'),
+                        mode === 'user-review' &&
+                          id === correctAnswerId &&
+                          'bg-emerald-500',
                         cxs?.answerRadio,
                       )}
                     />
@@ -199,21 +220,23 @@ const FourChoiceQuestion = ({
             </WithInsertedComponent>
 
             {/* Hint */}
-            <WithInsertedComponent currentPosition="hint">
-              <ResizablePanel
-                visible={!checkResult && showHint}
-                className={cxs?.hint}
-              >
-                <div className="pt-4">
-                  <div className="rounded border p-4">
-                    <ContentItems items={hint} />
+            {mode === 'client-grade' && (
+              <WithInsertedComponent currentPosition="hint">
+                <ResizablePanel
+                  visible={!checkResult && showHint}
+                  className={cxs?.hint}
+                >
+                  <div className="pt-4">
+                    <div className="rounded border p-4">
+                      <ContentItems items={hint} />
+                    </div>
                   </div>
-                </div>
-              </ResizablePanel>
-            </WithInsertedComponent>
+                </ResizablePanel>
+              </WithInsertedComponent>
+            )}
 
             {/* Hint & Check result/ Next buttons */}
-            {!checkResult && (
+            {mode === 'client-grade' && !checkResult && (
               <div
                 className={cx(
                   'mt-4 grid grid-cols-2 items-center gap-4 bg-white',
@@ -261,27 +284,45 @@ const FourChoiceQuestion = ({
                   </button>
                 ) : (
                   <NextButton
-                    {...{ selected, onNextClick, reset, textContent, cxs }}
+                    {...{
+                      mode,
+                      selected,
+                      textContent,
+                      cxs,
+                      onNextClick,
+                      reset,
+                    }}
                   />
                 )}
               </div>
             )}
 
-            {checkResult && (
+            {((mode === 'client-grade' && checkResult) ||
+              mode === 'user-review') && (
               <div className="mt-4 flex flex-col items-center">
                 {/* Result */}
                 <WithInsertedComponent currentPosition="result">
-                  <div className="w-full rounded border border-dashed border-red-500 px-8 py-3">
+                  <div className="w-full rounded border border-dashed border-slate-500 px-8 py-3">
                     <p className="text-center font-bold">
                       <span
                         className={cx(
-                          selected === correctAnswerId
-                            ? 'text-emerald-500'
-                            : 'text-red-500',
+                          mode === 'client-grade' &&
+                            (selected === correctAnswerId
+                              ? 'text-emerald-500'
+                              : 'text-red-500'),
+                          mode === 'user-review' &&
+                            (selectedAnswerId === correctAnswerId
+                              ? 'text-emerald-500'
+                              : 'text-red-500'),
                         )}
                       >
                         Bạn đã chọn{' '}
-                        {selected === correctAnswerId ? 'đúng' : 'sai'}
+                        {mode === 'client-grade' &&
+                          (selected === correctAnswerId ? 'đúng' : 'sai')}
+                        {mode === 'user-review' &&
+                          (selectedAnswerId === correctAnswerId
+                            ? 'đúng'
+                            : 'sai')}
                       </span>
                       <span className="px-2 text-emerald-500">|</span>
                       <span className="text-emerald-500">
@@ -348,7 +389,14 @@ const FourChoiceQuestion = ({
                     {textContent?.reviewButton || 'Xem lại lý thuyết'}
                   </button>
                   <NextButton
-                    {...{ selected, onNextClick, reset, textContent, cxs }}
+                    {...{
+                      mode,
+                      selected,
+                      textContent,
+                      cxs,
+                      onNextClick,
+                      reset,
+                    }}
                   />
                 </div>
               </div>
