@@ -52,12 +52,19 @@ interface ServerGradeMode {
 interface AdminPreviewMode {
   /**
    * `mode`: Các chế độ hoạt động của câu hỏi: `"client-grade"` | `"server-grade"` | `"admin-preview"` | `"user-review"`
-   * - `"admin-preview"`: Đang cập nhật.
+   * - `"admin-preview"`:
+   *    - Sử dụng cho nhập liệu nội dung.
+   *    - Đáp án đúng được đánh dấu. Gợi ý và lời giải được hiển thị mặc định.
+   *    - Yêu cầu prop `correctAnswerId`.
    */
   mode: 'admin-preview';
 
+  /**
+   * `correctAnswerId`: `id` của đáp án đúng.
+   */
+  correctAnswerId: string;
+
   // EXCLUDE
-  correctAnswerId?: never;
   selectedAnswerId?: never;
 }
 

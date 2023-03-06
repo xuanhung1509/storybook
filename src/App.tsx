@@ -74,8 +74,8 @@ const App = () => {
           hint,
           solution,
         }}
-        mode="server-grade"
-        // correctAnswerId={String(correctAnswerId)}
+        mode="admin-preview"
+        correctAnswerId={String(correctAnswerId)}
         // selectedAnswerId="3"
         onNextClick={handleNextClick}
         onReviewClick={handleReviewClick}

@@ -50,7 +50,7 @@ const FourChoiceQuestion = ({
   insertComponent: InsertComponent,
   ConfirmDialog: ConfirmDialogProps,
 }: FourChoiceQuestionProps) => {
-  const [showHint, setShowHint] = useState(false);
+  const [showHint, setShowHint] = useState(mode === 'admin-preview');
   const [selected, setSelected] = useState<string | null>(null);
   const [checkResult, setCheckResult] = useState(false);
   const [showSolution, setShowSolution] = useState(true);
@@ -84,7 +84,7 @@ const FourChoiceQuestion = ({
 
   // Reset all states to initial
   const reset = () => {
-    setShowHint(false);
+    setShowHint(mode === 'admin-preview');
     setSelected(null);
     setCheckResult(false);
     setShowSolution(true);
@@ -165,11 +165,12 @@ const FourChoiceQuestion = ({
                       className="peer absolute top-0 left-0 z-10 h-full w-full cursor-pointer opacity-0"
                       disabled={
                         (mode === 'client-grade' && checkResult) ||
-                        mode === 'user-review'
+                        ['admin-preview', 'user-review'].includes(mode)
                       }
                       checked={
                         (['client-grade', 'server-grade'].includes(mode) &&
                           selected === id) ||
+                        (mode === 'admin-preview' && correctAnswerId === id) ||
                         (mode === 'user-review' && selectedAnswerId === id)
                       }
                       value={id}
@@ -190,6 +191,8 @@ const FourChoiceQuestion = ({
                           (checkResult
                             ? 'peer-checked:bg-blue-400'
                             : 'peer-checked:bg-blue-500'),
+                        mode === 'admin-preview' &&
+                          'peer-checked:bg-emerald-500',
                         mode === 'user-review' &&
                           (selectedAnswerId === correctAnswerId
                             ? 'peer-checked:bg-emerald-500'
@@ -221,7 +224,9 @@ const FourChoiceQuestion = ({
             </WithInsertedComponent>
 
             {/* Hint */}
-            {['client-grade', 'server-grade'].includes(mode) && (
+            {['client-grade', 'server-grade', 'admin-preview'].includes(
+              mode,
+            ) && (
               <WithInsertedComponent currentPosition="hint">
                 <ResizablePanel
                   visible={!checkResult && showHint}
@@ -237,7 +242,7 @@ const FourChoiceQuestion = ({
             )}
 
             {/* Hint & Check result/ Next buttons */}
-            {['client-grade', 'server-grade'].includes(mode) &&
+            {['client-grade', 'server-grade', 'admin-preview'].includes(mode) &&
               !checkResult && (
                 <div
                   className={cx(
@@ -286,8 +291,10 @@ const FourChoiceQuestion = ({
                       {textContent?.checkResultButton || 'Kiểm tra'}
                     </button>
                   )}
+
                   {((mode === 'client-grade' && !selected) ||
-                    mode === 'server-grade') && (
+                    mode === 'server-grade' ||
+                    mode === 'admin-preview') && (
                     <NextButton
                       {...{
                         mode,
@@ -303,44 +310,46 @@ const FourChoiceQuestion = ({
               )}
 
             {((mode === 'client-grade' && checkResult) ||
-              mode === 'user-review') && (
+              ['user-review', 'admin-preview'].includes(mode)) && (
               <div className="mt-4 flex flex-col items-center">
                 {/* Result */}
-                <WithInsertedComponent currentPosition="result">
-                  <div className="w-full rounded border border-dashed border-slate-500 px-8 py-3">
-                    <p className="text-center font-bold">
-                      <span
-                        className={cx(
-                          mode === 'client-grade' &&
-                            (selected === correctAnswerId
-                              ? 'text-emerald-500'
-                              : 'text-red-500'),
-                          mode === 'user-review' &&
+                {mode !== 'admin-preview' && (
+                  <WithInsertedComponent currentPosition="result">
+                    <div className="w-full rounded border border-dashed border-slate-500 px-8 py-3">
+                      <p className="text-center font-bold">
+                        <span
+                          className={cx(
+                            mode === 'client-grade' &&
+                              (selected === correctAnswerId
+                                ? 'text-emerald-500'
+                                : 'text-red-500'),
+                            mode === 'user-review' &&
+                              (selectedAnswerId === correctAnswerId
+                                ? 'text-emerald-500'
+                                : 'text-red-500'),
+                          )}
+                        >
+                          Bạn đã chọn{' '}
+                          {mode === 'client-grade' &&
+                            (selected === correctAnswerId ? 'đúng' : 'sai')}
+                          {mode === 'user-review' &&
                             (selectedAnswerId === correctAnswerId
-                              ? 'text-emerald-500'
-                              : 'text-red-500'),
-                        )}
-                      >
-                        Bạn đã chọn{' '}
-                        {mode === 'client-grade' &&
-                          (selected === correctAnswerId ? 'đúng' : 'sai')}
-                        {mode === 'user-review' &&
-                          (selectedAnswerId === correctAnswerId
-                            ? 'đúng'
-                            : 'sai')}
-                      </span>
-                      <span className="px-2 text-emerald-500">|</span>
-                      <span className="text-emerald-500">
-                        Đáp án đúng:{' '}
-                        {
-                          indexedAnswers.find(
-                            ({ id }) => id === correctAnswerId,
-                          )?.index
-                        }
-                      </span>
-                    </p>
-                  </div>
-                </WithInsertedComponent>
+                              ? 'đúng'
+                              : 'sai')}
+                        </span>
+                        <span className="px-2 text-emerald-500">|</span>
+                        <span className="text-emerald-500">
+                          Đáp án đúng:{' '}
+                          {
+                            indexedAnswers.find(
+                              ({ id }) => id === correctAnswerId,
+                            )?.index
+                          }
+                        </span>
+                      </p>
+                    </div>
+                  </WithInsertedComponent>
+                )}
 
                 {/* Toggle solution button */}
                 <WithInsertedComponent currentPosition="toggleSolutionButton">
@@ -375,35 +384,37 @@ const FourChoiceQuestion = ({
                 </WithInsertedComponent>
 
                 {/* Review & Next buttons */}
-                <div
-                  className={cx(
-                    'mt-4 grid w-full grid-cols-2 items-center gap-4 bg-white',
-                    cxs?.buttonGrid,
-                  )}
-                >
-                  <button
-                    type="button"
+                {mode !== 'admin-preview' && (
+                  <div
                     className={cx(
-                      'h-full rounded-md border border-emerald-500 px-4 py-2',
-                      cxs?.reviewButton,
+                      'mt-4 grid w-full grid-cols-2 items-center gap-4 bg-white',
+                      cxs?.buttonGrid,
                     )}
-                    onClick={(event) => {
-                      if (onReviewClick) onReviewClick(event);
-                    }}
                   >
-                    {textContent?.reviewButton || 'Xem lại lý thuyết'}
-                  </button>
-                  <NextButton
-                    {...{
-                      mode,
-                      selected,
-                      textContent,
-                      cxs,
-                      onNextClick,
-                      reset,
-                    }}
-                  />
-                </div>
+                    <button
+                      type="button"
+                      className={cx(
+                        'h-full rounded-md border border-emerald-500 px-4 py-2',
+                        cxs?.reviewButton,
+                      )}
+                      onClick={(event) => {
+                        if (onReviewClick) onReviewClick(event);
+                      }}
+                    >
+                      {textContent?.reviewButton || 'Xem lại lý thuyết'}
+                    </button>
+                    <NextButton
+                      {...{
+                        mode,
+                        selected,
+                        textContent,
+                        cxs,
+                        onNextClick,
+                        reset,
+                      }}
+                    />
+                  </div>
+                )}
               </div>
             )}
           </div>

@@ -25,7 +25,7 @@ const NextButton = ({
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ) => {
     if (
-      mode === 'user-review' ||
+      ['admin-preview', 'user-review'].includes(mode) ||
       selected ||
       (!selected && (await confirm()))
     ) {
