@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable no-nested-ternary */
 import { useState } from 'react';
@@ -33,15 +34,16 @@ const data = rawData.map(
 export default {
   title: 'Library/Four-Choice Question',
   component: FourChoiceQuestion,
-  argTypes: {
-    difficultyLevel: {
-      options: ['Nhận biết', 'Thông hiểu', 'Vận dụng', 'Vận dụng cao'],
-      control: { type: 'radio' },
-    },
-  },
 } as ComponentMeta<typeof FourChoiceQuestion>;
 
-const Template: ComponentStory<typeof FourChoiceQuestion> = (args) => {
+const Template: ComponentStory<typeof FourChoiceQuestion> = ({
+  mode = 'client-grade',
+  selectedAnswerId = '3',
+  ...otherProps
+}: any) => {
+  const [selectedAnswers, setSelectedAnswers] = useState<Array<string | null>>(
+    [],
+  );
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const {
     label,
@@ -54,13 +56,20 @@ const Template: ComponentStory<typeof FourChoiceQuestion> = (args) => {
     solution,
   } = data[currentQuestion];
 
-  const handleNextClick = () =>
+  const handleNextClick: FourChoiceQuestionProps['onNextClick'] = (
+    _event,
+    selected,
+  ) => {
+    setSelectedAnswers((prev) => [...prev, selected]);
     setCurrentQuestion((prev) => {
       if (prev < data.length - 1) {
         return prev + 1;
       }
       return 0;
     });
+  };
+
+  const handleReviewClick = () => alert('Xem lại lý thuyết');
 
   return (
     <div className="container mx-auto flex min-h-[80vh] flex-col items-center gap-8 py-8 px-4">
@@ -72,12 +81,36 @@ const Template: ComponentStory<typeof FourChoiceQuestion> = (args) => {
           question,
           answers,
           hint,
-          correctAnswerId,
           solution,
+          mode,
+          selectedAnswerId,
         }}
-        {...args}
+        {...otherProps}
+        correctAnswerId={String(correctAnswerId)}
         onNextClick={handleNextClick}
+        onReviewClick={handleReviewClick}
       />
+
+      {mode === 'server-grade' && selectedAnswers.length > 0 && (
+        <section>
+          <h2 className="text-center">Selected Answers:</h2>
+          <pre className="mt-4">
+            <code>
+              <ul className="flex items-center gap-2">
+                <span>[</span>
+                {selectedAnswers.map((answer, index) => (
+                  // eslint-disable-next-line react/no-array-index-key
+                  <li key={index}>
+                    {String(answer)}
+                    {index < selectedAnswers.length - 1 && ','}
+                  </li>
+                ))}
+                <span>]</span>
+              </ul>
+            </code>
+          </pre>
+        </section>
+      )}
     </div>
   );
 };
@@ -150,4 +183,19 @@ ConfirmDialog.args = {
       cancelButton: 'cancelButton',
     },
   },
+};
+
+export const ServerGradeMode = Template.bind({});
+ServerGradeMode.args = {
+  mode: 'server-grade',
+};
+
+export const AdminPreviewMode = Template.bind({});
+AdminPreviewMode.args = {
+  mode: 'admin-preview',
+};
+
+export const UserReviewMode = Template.bind({});
+UserReviewMode.args = {
+  mode: 'user-review',
 };
