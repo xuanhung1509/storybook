@@ -18,8 +18,8 @@ interface ConfirmDialogProps {
    * `textContent`: Tùy chỉnh text của các thành phần của hộp thoại.
    */
   textContent?: Partial<{
-    confirmButtonText: string;
-    cancelButtonText: string;
+    confirmButton: string;
+    cancelButton: string;
   }>;
 
   /**
@@ -101,7 +101,7 @@ const ConfirmDialog = ({
                       )}
                       onClick={onConfirm}
                     >
-                      {textContent?.confirmButtonText || 'Confirm'}
+                      {textContent?.confirmButton || 'Confirm'}
                     </button>
                     <button
                       type="button"
@@ -111,7 +111,7 @@ const ConfirmDialog = ({
                       )}
                       onClick={onCancel}
                     >
-                      {textContent?.cancelButtonText || 'Cancel'}
+                      {textContent?.cancelButton || 'Cancel'}
                     </button>
                   </div>
                 </div>

@@ -168,8 +168,8 @@ ConfirmDialog.args = {
     title: 'Tiêu đề hộp thoại',
     description: 'Phụ đề hộp thoại',
     textContent: {
-      confirmButtonText: 'confirmButtonText',
-      cancelButtonText: 'cancelButtonText',
+      confirmButton: 'confirmButton',
+      cancelButton: 'cancelButton',
     },
     classNames: {
       backdrop: 'backdrop',
