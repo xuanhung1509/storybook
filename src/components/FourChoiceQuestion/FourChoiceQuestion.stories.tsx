@@ -165,9 +165,9 @@ InsertComponent.args = {
 export const ConfirmDialog = Template.bind({});
 ConfirmDialog.args = {
   ConfirmDialog: {
-    title: 'Tiêu đề hộp thoại',
-    description: 'Phụ đề hộp thoại',
     textContent: {
+      title: 'Tiêu đề hộp thoại',
+      description: 'Phụ đề hộp thoại',
       confirmButton: 'confirmButton',
       cancelButton: 'cancelButton',
     },

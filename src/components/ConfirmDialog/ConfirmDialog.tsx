@@ -5,19 +5,11 @@ import cx from '@/utils/classnames';
 
 interface ConfirmDialogProps {
   /**
-   * `title`: Tiêu đề của hộp thoại.
-   */
-  title?: string;
-
-  /**
-   * `description: Phụ đề/ Mô tả của hộp thoại.
-   */
-  description?: string;
-
-  /**
    * `textContent`: Tùy chỉnh text của các thành phần của hộp thoại.
    */
   textContent?: Partial<{
+    title: string;
+    description: string;
     confirmButton: string;
     cancelButton: string;
   }>;
@@ -39,8 +31,6 @@ interface ConfirmDialogProps {
 }
 
 const ConfirmDialog = ({
-  title = 'Bạn chưa chọn câu trả lời',
-  description = 'Bạn có muốn bỏ qua câu hỏi này không?',
   textContent,
   classNames: cxs,
 }: ConfirmDialogProps) => {
@@ -80,12 +70,13 @@ const ConfirmDialog = ({
                   )}
                 >
                   <h2 className={cx('font-bold uppercase', cxs?.title)}>
-                    {title}
+                    {textContent?.title || 'Bạn chưa chọn câu trả lời'}
                   </h2>
                 </div>
                 <div className={cx('p-4', cxs?.body)}>
                   <p className={cx('mt-4 text-center', cxs?.description)}>
-                    {description}
+                    {textContent?.description ||
+                      'Bạn có muốn bỏ qua câu hỏi này không?'}
                   </p>
                   <div
                     className={cx(
