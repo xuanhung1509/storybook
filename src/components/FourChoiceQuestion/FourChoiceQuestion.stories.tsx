@@ -32,7 +32,7 @@ const data = rawData.map(
 );
 
 export default {
-  title: 'Library/Four-Choice Question',
+  title: 'Playground/Four-choice Question',
   component: FourChoiceQuestion,
 } as ComponentMeta<typeof FourChoiceQuestion>;
 
