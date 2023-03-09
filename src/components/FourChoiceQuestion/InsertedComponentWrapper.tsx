@@ -1,25 +1,25 @@
 import { useFourChoiceQuestionContext } from './FourChoiceQuestionContext';
 import type { InsertComponentAfter } from './types';
 
-interface WithInsertedComponentProps {
-  currentPosition: InsertComponentAfter;
+interface InsertedComponentWrapperProps {
+  position: InsertComponentAfter;
   children: React.ReactNode;
 }
 
-const WithInsertedComponent = ({
-  currentPosition,
+const InsertedComponentWrapper = ({
+  position,
   children,
-}: WithInsertedComponentProps) => {
+}: InsertedComponentWrapperProps) => {
   const { InsertComponent } = useFourChoiceQuestionContext();
 
   return (
     <>
       {children}
-      {InsertComponent && InsertComponent.placeAfter === currentPosition && (
+      {InsertComponent && InsertComponent.placeAfter === position && (
         <InsertComponent.Component />
       )}
     </>
   );
 };
 
-export default WithInsertedComponent;
+export default InsertedComponentWrapper;

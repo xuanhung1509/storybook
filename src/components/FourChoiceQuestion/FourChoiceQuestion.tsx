@@ -9,7 +9,7 @@ import {
 } from '@/components/ConfirmDialog';
 import cx from '@/utils/classnames';
 import { FourChoiceQuestionProvider } from './FourChoiceQuestionContext';
-import WithInsertedComponent from './WithInsertedComponent';
+import InsertedComponentWrapper from './InsertedComponentWrapper';
 import NextButton from './NextButton';
 import type { ContentItem, FourChoiceQuestionProps } from './types';
 
@@ -100,7 +100,7 @@ const FourChoiceQuestion = ({
         <MathJaxContext>
           <div className={cx('w-[90vw] max-w-4xl', cxs?.container)}>
             {/* Header */}
-            <WithInsertedComponent currentPosition="header">
+            <InsertedComponentWrapper position="header">
               <div
                 className={cx(
                   'flex items-center justify-between gap-4',
@@ -117,10 +117,10 @@ const FourChoiceQuestion = ({
                   {difficultyLevel}
                 </span>
               </div>
-            </WithInsertedComponent>
+            </InsertedComponentWrapper>
 
             {/* Common question */}
-            <WithInsertedComponent currentPosition="commonQuestion">
+            <InsertedComponentWrapper position="commonQuestion">
               {commonQuestion && (
                 <div
                   className={cx(
@@ -133,17 +133,17 @@ const FourChoiceQuestion = ({
                   </div>
                 </div>
               )}
-            </WithInsertedComponent>
+            </InsertedComponentWrapper>
 
             {/* Question */}
-            <WithInsertedComponent currentPosition="question">
+            <InsertedComponentWrapper position="question">
               <div className={cx('mt-4', cxs?.question)}>
                 <ContentItems items={question} />
               </div>
-            </WithInsertedComponent>
+            </InsertedComponentWrapper>
 
             {/* Answers */}
-            <WithInsertedComponent currentPosition="answers">
+            <InsertedComponentWrapper position="answers">
               <div
                 className={cx(
                   'mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4',
@@ -221,13 +221,13 @@ const FourChoiceQuestion = ({
                   </div>
                 ))}
               </div>
-            </WithInsertedComponent>
+            </InsertedComponentWrapper>
 
             {/* Hint */}
             {['client-grade', 'server-grade', 'admin-preview'].includes(
               mode,
             ) && (
-              <WithInsertedComponent currentPosition="hint">
+              <InsertedComponentWrapper position="hint">
                 <ResizablePanel
                   visible={!checkResult && showHint}
                   className={cxs?.hint}
@@ -238,7 +238,7 @@ const FourChoiceQuestion = ({
                     </div>
                   </div>
                 </ResizablePanel>
-              </WithInsertedComponent>
+              </InsertedComponentWrapper>
             )}
 
             {/* Hint & Check result/ Next buttons */}
@@ -314,7 +314,7 @@ const FourChoiceQuestion = ({
               <div className="mt-4 flex flex-col items-center">
                 {/* Result */}
                 {mode !== 'admin-preview' && (
-                  <WithInsertedComponent currentPosition="result">
+                  <InsertedComponentWrapper position="result">
                     <div className="w-full rounded border border-dashed border-slate-500 px-8 py-3">
                       <p className="text-center font-bold">
                         <span
@@ -348,11 +348,11 @@ const FourChoiceQuestion = ({
                         </span>
                       </p>
                     </div>
-                  </WithInsertedComponent>
+                  </InsertedComponentWrapper>
                 )}
 
                 {/* Toggle solution button */}
-                <WithInsertedComponent currentPosition="toggleSolutionButton">
+                <InsertedComponentWrapper position="toggleSolutionButton">
                   <button
                     type="button"
                     className={cx(
@@ -369,10 +369,10 @@ const FourChoiceQuestion = ({
                       )}
                     />
                   </button>
-                </WithInsertedComponent>
+                </InsertedComponentWrapper>
 
                 {/* Solution */}
-                <WithInsertedComponent currentPosition="solution">
+                <InsertedComponentWrapper position="solution">
                   <ResizablePanel
                     visible={showSolution}
                     className={cxs?.solution}
@@ -381,7 +381,7 @@ const FourChoiceQuestion = ({
                       <ContentItems items={solution} />
                     </div>
                   </ResizablePanel>
-                </WithInsertedComponent>
+                </InsertedComponentWrapper>
 
                 {/* Review & Next buttons */}
                 {mode !== 'admin-preview' && (
