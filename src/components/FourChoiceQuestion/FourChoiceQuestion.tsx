@@ -419,10 +419,10 @@ const FourChoiceQuestion = ({
             )}
           </div>
         </MathJaxContext>
-
-        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-        <ConfirmDialog {...ConfirmDialogProps} />
       </FourChoiceQuestionProvider>
+
+      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+      <ConfirmDialog {...ConfirmDialogProps} />
     </ConfirmDialogProvider>
   );
 };
